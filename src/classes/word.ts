@@ -1,6 +1,5 @@
-export type WordCategory = 'verb' | 'noun' | 'determiner' | 'none'
+import { WordCategory, WordOptions } from '../types';
 
-export type WordOptions = {ascii: string, ipa: string, category: WordCategory, lemmaId?: number}
 
 export class Word {
   id:number = 0;

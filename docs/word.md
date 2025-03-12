@@ -4,6 +4,8 @@ The `Word` class is a fundamental component of the Baron Linguistics system that
 
 ## Type Definitions
 
+The Word class uses types defined in `src/types/index.ts`:
+
 ### WordCategory
 ```typescript
 export type WordCategory = 'verb' | 'noun' | 'determiner' | 'none'
@@ -28,19 +30,19 @@ Defines the options required to create a new `Word` instance.
 ## Class Properties
 
 ### id: number
-Unique identifier for the word instance.
+Unique identifier for the word instance. Defaults to 0.
 
 ### text: string
-The word's textual representation (same as `ascii`).
+The word's textual representation (same as `ascii`). Defaults to empty string.
 
 ### ascii: string
-The ASCII representation of the word.
+The ASCII representation of the word. Defaults to empty string.
 
 ### ipaParts: string[]
-Array of phonetic symbols representing the word in IPA, split by spaces.
+Array of phonetic symbols representing the word in IPA, split by spaces. Defaults to empty array.
 
 ### category: WordCategory
-The grammatical category of the word.
+The grammatical category of the word. Defaults to 'none'.
 
 ### lemmaId: number
 The identifier of the word's lemma (base form). Defaults to -1 if no lemma is specified.
@@ -156,4 +158,13 @@ The class includes basic error handling:
 
 - IPA parts are stored as an array for efficient manipulation
 - Lemma references are cached to avoid repeated lookups
-- String operations are optimized for common use cases 
+- String operations are optimized for common use cases
+
+## Related Types
+
+The Word class is part of a larger type system that includes:
+
+- `PhoneticAnnotation`: Structure for phonetic representations
+- `PhoneticRule`: Definition of phonetic transformation rules
+- `PhoneticRuleset`: Collection of phonetic rules
+- `PhoneticAlphabet`: Supported phonetic alphabet types ('ipa' | 'arpa' | 'ascii') 

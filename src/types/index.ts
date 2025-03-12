@@ -15,3 +15,6 @@ export type PhoneticRuleset = PhoneticRule[];
 
 export type PhoneticAlphabet = 'ipa' | 'arpa' | 'ascii'
 
+export type WordCategory = 'verb' | 'noun' | 'determiner' | 'none'
+
+export type WordOptions = {ascii: string, ipa: string, category: WordCategory, lemmaId?: number}
