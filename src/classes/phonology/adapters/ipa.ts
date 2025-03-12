@@ -1,9 +1,8 @@
 import { PhoneticRule } from "../../../types";
-import { Genera, GenericVectors, Phoneme, VowelVectors } from "../Phoneme";
+import {  Phoneme } from "../Phoneme";
 import { Selector } from "../Selector";
 import { Appliable, Matcher, Validator } from "./interfaces";
 import { SELECTORS } from "../SelectorsService";
-
 
 export class IPAAdapter implements Validator, Matcher, Appliable {
   flavor: string = 'ipa'

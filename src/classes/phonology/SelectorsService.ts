@@ -1,4 +1,4 @@
-import { GenericVectors } from "./Phoneme"
+import { GenericVectors } from "../../types"
 import { Selector } from "./Selector"
 
 export class SELECTORS {

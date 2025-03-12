@@ -1,3 +1,5 @@
+import { Genera, GenericVectors, ConsonantVectors, VowelVectors, BoundaryVectors } from "../../types"
+
 //vocalics
 const vowels = [ 'i', 'y', 'ɨ', 'ʉ', 'ɯ', 'u', 'ɪ', 'ʏ', 'ʊ', 'e', 'ø', 'ɘ', 'ɵ', 'ɤ', 'o', 'ə', 'ɛ', 'œ', 'ɜ', 'ɞ', 'ʌ', 'ɔ', 'æ', 'ɐ', 'a', 'ɶ', 'ɑ', 'ɒ', 'ɝ']
 
@@ -36,19 +38,6 @@ const glottals = [ "ʔ", "h", "ɦ" ]
 // voicing
 const voiced = ["b", "d", "ɡ", "ʙ", "v", "ð", "z", "ʒ", "ɾ", "r", "ʝ", "j", "ɾ", "ɻ", "ɣ", "ŋ", "ɰ", "ʁ", "ɲ", "ɬ", "ʋ", "ɮ", "m", "n", "l", "ɳ"]
 
-export type Genera = 'vocalic' | 'pulmonic' | 'non-pulmonic' | 'boundary'
-export type VowelHeight = 'close' | 'close-mid' | 'mid' | 'open-mid' | 'open' 
-export type VowelFronting = 'front' | 'central' | 'back'
-export type VowelRounding = 'rounded' | 'unrounded'
-
-export type MannerOfArticulation = 'plosive' | 'nasal' | 'trill' | 'tap' | 'flap' | 'fricative' | 'lateral' | 'approximant'
-export type PlaceOfArticulation = 'bilabial' | 'labiodental' | 'dental' | 'alveolar' | 'postalveolar' | 'retroflex' | 'palatal' | 'velar' | 'uvular' | 'pharyngeal' | 'glottal'
-export type ConsonantVoicing = 'voiced' | 'voiceless' 
-
-export type VowelVectors = [Genera, VowelHeight, VowelFronting, VowelRounding]
-export type ConsonantVectors = [Genera, MannerOfArticulation, PlaceOfArticulation, ConsonantVoicing]
-export type BoundaryVectors = ['boundary', null, null, null]
-export type GenericVectors = VowelVectors | ConsonantVectors | BoundaryVectors
 
 export class Phoneme {
   ipa: string;

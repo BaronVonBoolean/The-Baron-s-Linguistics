@@ -1,6 +1,5 @@
-import { Genera, GenericVectors, Phoneme } from "./Phoneme";
-
-type SelectorPredicate = (vectors: GenericVectors, genera: Genera) => boolean;
+import { Genera, GenericVectors, SelectorPredicate } from "../../types";
+import { Phoneme } from "./Phoneme";
 
 export class Selector {
   token: string;

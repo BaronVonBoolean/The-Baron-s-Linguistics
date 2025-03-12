@@ -1,4 +1,5 @@
-import { Word, WordCategory } from "../word";
+import { Word } from "../word";
+import { WordCategory } from "../../types";
 import fs from 'fs/promises'
 
 export type VocabLookupFilter = {

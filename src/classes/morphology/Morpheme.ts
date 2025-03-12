@@ -1,4 +1,6 @@
-import { Word, WordCategory } from "../word";
+import { Word } from "../word";
+
+import { WordCategory } from "../../types";
 
 type MorphemeCategory = WordCategory | 'bound'
 export class Morpheme {

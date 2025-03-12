@@ -1,9 +1,10 @@
 import { PhoneticRuleset } from "../../types";
 import { Annotator } from "../phonology/Annotator";
 import { Vocabulary } from "../vocabulary/Vocabulary";
-import { Word, WordCategory } from "../word";
+import { Word } from "../word";
 import { Morpheme } from "./Morpheme";
 import fs from 'fs/promises'
+import { WordCategory } from "../../types";
 export class Morphology {
 
   vocab: Vocabulary;
