@@ -1,0 +1,54 @@
+1;i;a ɪ;pronoun;1
+2;me;m i;pronoun;1
+3;my;m aɪ;pronoun;1
+4;mine;m aɪ n;pronoun;1
+5;myself;m aɪ ˈs ɛ l f;pronoun;5 
+6;you;j u;pronoun;6
+7;your;j ɔ r;pronoun;6
+8;yours;j ɔ r z;pronoun;6
+9;yourself;j ɔ r ˈs ɛ l f;pronoun;9
+10;yourselves;j ɔ r ˈs ɛ l v z;pronoun;9
+11;he;h i;pronoun;11
+12;him;h ɪ m;pronoun;11
+13;his;h ɪ z;pronoun;11
+14;himself;h ɪ m ˈs ɛ l f;pronoun;14 
+15;she;ʃ i;pronoun;15
+16;her;h ɜ r;pronoun;15
+17;hers;h ɜ r z;pronoun;15  
+18;herself;h ɜ r ˈs ɛ l f;pronoun;18
+19;it;ɪ t;pronoun;19
+20;its;ɪ t s;pronoun;19
+21;itself;ɪ t ˈs ɛ l f;pronoun;21
+22;we;w i;pronoun;22
+23;us;ʌ s;pronoun;22
+24;our;aʊ r;pronoun;22
+25;ours;aʊ r z;pronoun;22
+26;ourselves;aʊ r ˈs ɛ l v z;pronoun;26
+27;they;ð eɪ;pronoun;27
+28;them;ð ɛ m;pronoun;27
+29;their;ð ɛ r;pronoun;27
+30;theirs;ð ɛ r z;pronoun;27 
+31;themselves;ð ɛ m ˈs ɛ l v z;pronoun;31
+32;this;ð ɪ s;pronoun;32
+33;these;ð i z;pronoun;33
+34;that;ð æ t;pronoun;34  
+35;those;ð oʊ z;pronoun;35
+36;who;h u;pronoun;36
+37;whom;h u m;pronoun;36
+38;whose;h u z;pronoun;36
+39;whoever;h u ˈɛ v ɚ;pronoun;39
+40;whomever;h u m ˈɛ v ɚ;pronoun;39
+41;which;w ɪ tʃ;pronoun;41
+42;what;w ɒ t;pronoun;42
+43;whichever;w ɪ tʃ ˈɛ v ɚ;pronoun;43
+44;whatever;w ɒ t ˈɛ v ɚ;pronoun;44
+45;ive;a ɪ v;pronoun;1
+46;all;ɔ l;pronoun;46
+47;im;aɪ m;pronoun;1
+48;id;aɪ d;pronoun;1  
+49;ill;aɪ l;pronoun;1  
+50;youre;j ɔ r;pronoun;  
+51;youve;j u v;pronoun;  
+52;youd;j u d;pronoun;  
+53;youll;j u l;pronoun;  
+54;youd;j u d;pronoun;  

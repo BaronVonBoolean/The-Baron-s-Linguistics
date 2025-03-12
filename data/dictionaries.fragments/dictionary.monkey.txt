@@ -1,0 +1,5 @@
+1;monkey;m ʌ ŋ k i;noun;1
+2;monkey;m ʌ ŋ k i;verb;2
+3;monkeys;m ʌ ŋ k i z;noun;1
+4;monkeys;m ʌ ŋ k i z;verb;2
+5;monkeying;m ʌ ŋ k i ɪ ŋ;verb;2

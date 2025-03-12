@@ -1,0 +1,3 @@
+1;there;ð e r;adverb;1
+2;there;ð e r;pronoun;2
+2;theres;ð e r z;pronoun;2

@@ -1,0 +1,5 @@
+1;frog;f r ɒ g;noun;1
+2;frog;f r ɒ g;verb;1
+3;frogs;f r ɒ g z;plural noun;1
+4;frogged;f r ɒ g d;verb;2
+5;frogging;f r ɒ g ɪ ŋ;verb;2

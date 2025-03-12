@@ -1,0 +1,13 @@
+1;the;ð ə;determiner;1
+2;a;ə;determiner;2
+3;an;æ n;determiner;2
+4;this;ð ɪ s;determiner;4
+5;that;ð æ t;determiner;5
+6;these;ð i z;determiner;4
+7;those;ð oʊ z;determiner;5
+8;my;m aɪ;determiner;8
+9;your;j ɔ r;determiner;9
+10;his;h ɪ z;determiner;10
+11;her;h ɜ r;determiner;11
+12;our;ˈaʊ ə r;determiner;12
+13;all;ɔ l;determiner;13

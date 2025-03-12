@@ -1,0 +1,5 @@
+h -> k : # _ [vowel] 
+w -> f : # _ [vowel] 
+l -> k : # _ [vowel] 
+m -> b : # _ [vowel] 
+ʃ -> t : # _ [vowel] 

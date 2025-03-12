@@ -1,0 +1,5 @@
+z -> s : * _ #|[voiceless]
+d -> t : * _ #|[voiceless]
+ð -> θ : * _ #|[voiceless]
+dʒ -> k : * _ #|[voiceless]
+ŋ -> g : ɪ _ #

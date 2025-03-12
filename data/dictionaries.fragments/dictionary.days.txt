@@ -1,0 +1,14 @@
+1;monday;m ʌ n d eɪ;noun;1
+2;mondays;m ʌ n d eɪ z;plural noun;1
+3;tuesday;t j u z d eɪ;noun;3
+4;tuesdays;t j u z d eɪ z;plural noun;3
+5;wednesday;w ɛ n z d eɪ;noun;5
+6;wednesdays;w ɛ n z d eɪ z;plural noun;5
+7;thursday;θ ɜ z d eɪ;noun;7
+8;thursdays;θ ɜ z d eɪ z;plural noun;7
+9;friday;f r aɪ d eɪ;noun;9
+10;fridays;f r aɪ d eɪ z;plural noun;9
+11;saturday;s æ t ər d eɪ;noun;11
+12;saturdays;s æ t ər d eɪ z;plural noun;11
+13;sunday;s ʌ n d eɪ;noun;13
+14;sundays;s ʌ n d eɪ z;plural noun;13

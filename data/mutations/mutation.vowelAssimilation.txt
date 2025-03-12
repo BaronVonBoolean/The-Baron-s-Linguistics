@@ -1,0 +1,10 @@
+ɒ -> a : [alveolar]|[palatal]|[velar] _ [alveolar]|[palatal]|[velar]
+ɔ -> ɛ : [alveolar]|[palatal]|[velar] _ [alveolar]|[palatal]|[velar]
+o -> e : [alveolar]|[palatal]|[velar] _ [alveolar]|[palatal]|[velar]
+u -> i : [alveolar]|[palatal]|[velar] _ [alveolar]|[palatal]|[velar]
+a -> ɒ : [bilabial]|[labiodental] _ [bilabial]|[labiodental]
+æ -> ɒ : [bilabial]|[labiodental] _ [bilabial]|[labiodental]
+ɛ -> ɔ : [bilabial]|[labiodental] _ [bilabial]|[labiodental]
+e -> o : [bilabial]|[labiodental] _ [bilabial]|[labiodental]
+i -> u : [bilabial]|[labiodental] _ [bilabial]|[labiodental]
+

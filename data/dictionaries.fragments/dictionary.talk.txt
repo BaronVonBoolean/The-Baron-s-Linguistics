@@ -1,0 +1,4 @@
+1;talk;t ɔ k;verb;1
+2;talks;t ɔ k s;verb;1
+3;talked;t ɔ k t;verb;1
+4;talking;t ɔ k ɪ ŋ;verb;1

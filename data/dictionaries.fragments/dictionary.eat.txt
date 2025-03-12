@@ -1,0 +1,5 @@
+1;eat;i t;verb;1  
+2;eats;i t s;verb;1 
+3;ate;eɪ t;verb;1 
+4;eaten;i t ə n;verb;1  
+5;eating;i t ɪ ŋ;verb;1  

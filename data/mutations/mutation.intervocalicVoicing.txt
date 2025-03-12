@@ -1,0 +1,4 @@
+s -> z : [vowel] _ [vowel]
+t -> d : [vowel] _ [vowel]
+θ -> ð : [vowel] _ [vowel]
+k -> dʒ : [vowel] _ [vowel]

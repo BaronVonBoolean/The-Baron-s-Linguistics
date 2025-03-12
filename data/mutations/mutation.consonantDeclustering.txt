@@ -1,0 +1,4 @@
+t -> ʌ t ʌ : s _ [consonant]
+p -> i p ʌ : s _ [consonant]
+k -> u k ʌ : s _ [consonant]
+r|ɹ -> : [consonant] _ *

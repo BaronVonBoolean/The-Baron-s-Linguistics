@@ -1,0 +1,5 @@
+1;sound;s aʊ n d;noun;1
+2;sounds;s aʊ n d z;noun;1
+3;sound;s aʊ n d;verb;3
+4;sounded;s aʊ n d ɪ d;verb;3
+5;sounding;s aʊ n d ɪ ŋ;verb;3

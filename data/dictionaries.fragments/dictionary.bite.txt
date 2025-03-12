@@ -1,0 +1,6 @@
+1;bite;b aɪ t;verb;1
+2;bites;b aɪ t s;verb;1
+3;bit;b ɪ t;verb;1
+4;bitten;b ɪ t ən;verb;1
+5;bite;b aɪ t;noun;1
+6;bites;b aɪ t s;noun;1

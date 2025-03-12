@@ -1,0 +1,40 @@
+1;one;w ʌ n;adjective;1 
+2;first;f ɜ r s t;adjective;2 
+3;two;t u;adjective;3
+4;second;ˈs ɛ k ə n d;adjective;4
+5;three;θ r i;adjective;5
+6;third;θ ɜ r d;adjective;6
+7;four;f ɔ r;adjective;7
+8;fourth;f ɔ r θ;adjective;7
+9;five;f aɪ v;adjective;9
+10;fifth;f ɪ f θ;adjective;9
+11;six;s ɪ k s;adjective;11
+12;sixth;s ɪ k s θ;adjective;11
+13;seven;ˈs ɛ v ə n;adjective;13
+14;seventh;ˈs ɛ v ə n θ;adjective;13
+15;eight;eɪ t;adjective;15
+16;eighth;eɪ t θ;adjective;15
+17;nine;n aɪ n;adjective;17
+18;ninth;n aɪ n θ;adjective;17
+19;ten;t ɛ n;adjective;19
+20;tenth;t ɛ n θ;adjective;19
+21;eleven;ɪ ˈl ɛ v ə n;adjective;21
+22;eleventh;ɪ ˈl ɛ v ə n θ;adjective;21
+23;twelve;t w ɛ l v;adjective;23
+24;twelfth;t w ɛ l f θ;adjective;23
+25;thirteen;ˈθ ɜ r t i n;adjective;25
+26;thirteenth;ˈθ ɜ r t i n θ;adjective;25
+27;fourteen;ˈf ɔ r t i n;adjective;27
+28;fourteenth;ˈf ɔ r t i n θ;adjective;27
+29;fifteen;ˈf ɪ f t i n;adjective;29
+30;fifteenth;ˈf ɪ f t i n θ;adjective;29
+31;sixteen;ˈs ɪ k s t i n;adjective;31
+32;sixteenth;ˈs ɪ k s t i n θ;adjective;31
+33;seventeen;ˈs ɛ v ə n t i n;adjective;33
+34;seventeenth;ˈs ɛ v ə n t i n θ;adjective;33
+35;eighteen;ˈeɪ t i n;adjective;35
+36;eighteenth;ˈeɪ t i n θ;adjective;35  
+37;nineteen;ˈn aɪ n t i n;adjective;37
+38;nineteenth;ˈn aɪ n t i n θ;adjective;37  
+39;twenty;ˈt w ɛ n t i;adjective;39
+40;twentieth;ˈt w ɛ n t i ə θ;adjective;39 

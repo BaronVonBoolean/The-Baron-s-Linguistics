@@ -1,0 +1,4 @@
+1;creep;k r i p;verb;1
+2;creeps;k r i p s;verb;1
+3;crept;k r ɛ p t;verb;1
+4;creeping;k r i p ɪ ŋ;verb;1

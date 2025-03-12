@@ -1,0 +1,6 @@
+1;fish;f ɪ ʃ;noun;1
+2;fishes;f ɪ ʃ ɪ z;noun;1
+3;fish;f ɪ ʃ;verb;3
+4;fishes;f ɪ ʃ ɪ z;verb;3 
+5;fished;f ɪ ʃ t;verb;3
+6;fishing;f ɪ ʃ ɪ ŋ;verb;3

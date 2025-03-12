@@ -1,0 +1,400 @@
+1;be;b i;verb;1
+2;am;æ m;verb;1
+3;is;ɪ z;verb;1
+4;are;ɑ;r;verb;1
+5;was;wɒ z;verb;1
+6;were;wɜ;verb;1
+7;been;b i n;verb;1
+8;being;b i ɪ ŋ;verb;1
+9;have;h æ v;verb;9
+10;has;h æ z;verb;9
+11;had;h æ d;verb;9
+12;having;h æ v ɪ ŋ;verb;9
+13;do;d u;verb;13
+14;does;d ʌ z;verb;13
+15;did;d ɪ d;verb;13
+16;doing;d u ɪ ŋ;verb;13
+17;go;g əʊ;verb;17
+18;goes;g əʊ z;verb;17
+19;went;w ɛ n t;verb;17
+20;going;g əʊ ɪ ŋ;verb;17
+21;get;g ɛ t;verb;21
+22;gets;g ɛ t s;verb;21
+23;got;g ɒ t;verb;21
+24;getting;g ɛ t ɪ ŋ;verb;21
+25;make;m eɪ k;verb;25
+26;makes;m eɪ k s;verb;25
+27;made;m eɪ d;verb;25
+28;making;m eɪ k ɪ ŋ;verb;25
+29;see;s i;verb;29
+30;sees;s i z;verb;29
+31;saw;s ɔ;verb;29
+32;seen;s i n;verb;29
+33;seeing;s i ɪ ŋ;verb;29
+34;come;kʌm;verb;34
+35;comes;kʌm z;verb;34
+36;came;k eɪ m;verb;34
+37;coming;kʌm ɪ ŋ;verb;34
+38;think;θ ɪ ŋ k;verb;38
+39;thinks;θ ɪ ŋ k s;verb;38
+40;thought;θ ɔ t;verb;38
+41;thinking;θ ɪ ŋ k ɪ ŋ;verb;38
+42;say;s eɪ;verb;42
+43;says;s eɪ z;verb;42
+44;said;s ɛ d;verb;42
+45;saying;s ɛ ɪ ŋ;verb;42
+46;want;wɒ n t;verb;46
+47;wants;wɒ n t s;verb;46
+48;wanted;wɒ n t ɪ d;verb;46
+49;wanting;wɒ n t ɪ ŋ;verb;46
+50;give;g ɪ v;verb;50
+51;gives;g ɪ v z;verb;50
+52;gave;g eɪ v;verb;50
+53;giving;g ɪ v ɪ ŋ;verb;50
+54;take;t eɪ k;verb;54
+55;takes;t eɪ k s;verb;54
+56;took;t ʊ k;verb;54
+57;taken;t eɪ k ə n;verb;54
+58;taking;t eɪ k ɪ ŋ;verb;54
+59;know;n əʊ;verb;59
+60;knows;n əʊ z;verb;59
+61;knew;n j u;verb;59
+62;known;n əʊ n;verb;59
+63;knowing;n əʊ ɪ ŋ;verb;59
+64;find;faɪ n d;verb;64
+65;finds;faɪ n d z;verb;64
+66;found;f aʊ n d;verb;64
+67;finding;f aɪ n d ɪ ŋ;verb;64
+68;give;g ɪ v;verb;68
+69;gives;g ɪ v z;verb;68
+70;gave;g eɪ v;verb;68
+71;given;g ɪ v ə n;verb;68
+72;giving;g ɪ v ɪ ŋ;verb;68
+73;help;h ɛ l p;verb;73
+74;helps;h ɛ l p s;verb;73
+75;helped;h ɛ l p t;verb;73
+76;helping;h ɛ l p ɪ ŋ;verb;73
+77;play;p l eɪ;verb;77
+78;plays;p l eɪ z;verb;77
+79;played;p l eɪ d;verb;77
+80;playing;p l eɪ ɪ ŋ;verb;77
+81;work;wɜ k;verb;81
+82;works;wɜ k s;verb;81
+83;worked;wɜ k t;verb;81
+84;working;wɜ k ɪ ŋ;verb;81
+85;call;k ɔ l;verb;85
+86;calls;k ɔ l z;verb;85
+87;called;k ɔ l d;verb;85
+88;calling;k ɔ l ɪ ŋ;verb;85
+89;need;n i d;verb;89
+90;needs;n i d z;verb;89
+91;needed;n i d ɪ d;verb;89
+92;needing;n i d ɪ ŋ;verb;89
+93;try;t r aɪ;verb;93
+94;tries;t r aɪ z;verb;93
+95;tried;t r aɪ d;verb;93
+96;trying;t r aɪ ɪ ŋ;verb;93
+97;ask;æ s k;verb;97
+98;asks;æ s k s;verb;97
+99;asked;æ s k d;verb;97
+100;asking;æ s k ɪ ŋ;verb;97
+101;need;n i d;verb;101
+102;needs;n i d z;verb;101
+103;needed;n i d ɪ d;verb;101
+104;needing;n i d ɪ ŋ;verb;101
+105;become;b ɪ k ʌ m;verb;105
+106;becomes;b ɪ k ʌ m z;verb;105
+107;became;b ɪ k eɪ m;verb;105
+108;becoming;b ɪ k ʌ m ɪ ŋ;verb;105
+109;show;ʃəʊ;verb;109
+110;shows;ʃəʊ z;verb;109
+111;showed;ʃəʊ d;verb;109
+112;shown;ʃəʊ n;verb;109
+113;showing;ʃəʊ ɪ ŋ;verb;109
+114;turn;tɜn;verb;114
+115;turns;tɜn z;verb;114
+116;turned;tɜn d;verb;114
+117;turning;tɜn ɪ ŋ;verb;114
+118;like;laɪ k;verb;118
+119;likes;laɪ k s;verb;118
+120;liked;laɪ k d;verb;118
+121;liking;laɪ k ɪ ŋ;verb;118
+122;live;l ɪ v;verb;122
+123;lives;l ɪ v z;verb;122
+124;lived;l ɪ v d;verb;122
+125;living;l ɪ v ɪ ŋ;verb;122
+126;help;h ɛ l p;verb;126
+127;helps;h ɛ l p s;verb;126
+128;helped;h ɛ l p t;verb;126
+129;helping;h ɛ l p ɪ ŋ;verb;126
+130;believe;b ɪ  l i v;verb;130
+131;believes;b ɪ  l i v z;verb;130
+132;believed;b ɪ  l i v d;verb;130
+133;believing;b ɪ  l i v ɪ ŋ;verb;130
+134;bring;br ɪ ŋ;verb;134
+135;brings;br ɪ ŋ z;verb;134
+136;brought;br ɔ t;verb;134
+137;bringing;br ɪ ŋ ɪ ŋ;verb;134
+138;begin;b ɪ  gɪn;verb;138
+139;begins;b ɪ  gɪn z;verb;138
+140;began;b ɪ  gæn;verb;138
+141;begun;b ɪ  gʌn;verb;138
+142;beginning;b ɪ  gɪn ɪ ŋ;verb;138
+143;call;k ɔ l;verb;143
+144;calls;k ɔ l z;verb;143
+145;called;k ɔ l d;verb;143
+146;calling;k ɔ l ɪ ŋ;verb;143
+147;wait;w eɪ t;verb;147
+148;waits;w eɪ t s;verb;147
+149;waited;w eɪ t ɪ d;verb;147
+150;waiting;w eɪ t ɪ ŋ;verb;147
+151;move;m u v;verb;151
+152;moves;m u v z;verb;151
+153;moved;m u v d;verb;151
+154;moving;m u v ɪ ŋ;verb;151
+155;talk;t ɔ k;verb;155
+156;talks;t ɔ k s;verb;155
+157;talked;t ɔ k d;verb;155
+158;talking;t ɔ k ɪ ŋ;verb;155
+159;play;p l eɪ;verb;159
+160;plays;p l eɪ z;verb;159
+161;played;p l eɪ d;verb;159
+162;playing;p l eɪ ɪ ŋ;verb;159
+163;work;w ɜ k;verb;163
+164;works;w ɜ k s;verb;163
+165;worked;w ɜ k t;verb;163
+166;working;w ɜ k ɪ ŋ;verb;163
+167;read;r ɛ d;verb;167
+168;reads;r i d z;verb;167
+169;read;r ɛ d;verb;167
+170;reading;r i d ɪ ŋ;verb;167
+171;create;k r eɪ eɪ t;verb;171
+172;creates;k r eɪ eɪ t s;verb;171
+173;created;k r eɪ eɪ t ɪ d;verb;171
+174;creating;k r eɪ eɪ t ɪ ŋ;verb;171
+175;change;tʃ eɪ n dʒ;verb;175
+176;changes;tʃ eɪ n dʒ ɪ z;verb;175
+177;changed;tʃ eɪ n dʒ d;verb;175
+178;changing;tʃ eɪ n dʒ ɪ ŋ;verb;175
+179;run;r ʌ n;verb;179
+180;runs;r ʌ n z;verb;179
+181;ran;r æ n;verb;179
+182;running;r ʌ n ɪ ŋ;verb;179
+183;understand;ʌ n d əs t æ n d;verb;183
+184;understands;ʌ n d əs t æ n d z;verb;183
+185;understood;ʌ n d əs t ʊ d;verb;183
+186;understanding;ʌ n d əs t æ n d ɪ ŋ;verb;183
+187;become;b ɪ k ʌ m;verb;187
+188;becomes;b ɪ k ʌ m z;verb;187
+189;became;b ɪ k eɪ m;verb;187
+190;becoming;b ɪ k ʌ m ɪ ŋ;verb;187
+191;seem;s i m;verb;191
+192;seems;s i m z;verb;191
+193;seemed;s i m d;verb;191
+194;seeming;s i m ɪ ŋ;verb;191
+195;keep;k i p;verb;195
+196;keeps;k i p s;verb;195
+197;kept;k e p t;verb;195
+198;keeping;k i p ɪ ŋ;verb;195
+199;study;s t ʌ d i;verb;199
+200;studies;s t ʌ d i z;verb;199
+201;studied;s t ʌ d ɪ d;verb;199
+202;studying;s t ʌ d ɪ ɪ ŋ;verb;199
+203;start;s t ɑ t;verb;203
+204;starts;s t ɑ t s;verb;203
+205;started;s t ɑ t ɪ d;verb;203
+206;starting;s t ɑ t ɪ ŋ;verb;203
+207;move;m u v;verb;207
+208;moves;m u v z;verb;207
+209;moved;m u v d;verb;207
+210;moving;m u v ɪ ŋ;verb;207
+211;help;h ɛ l p;verb;211
+212;helps;h ɛ l p s;verb;211
+213;helped;h ɛ l p t;verb;211
+214;helping;h ɛ l p ɪ ŋ;verb;211
+215;teach;t i tʃ;verb;215
+216;teaches;t i tʃ ɪ z;verb;215
+217;taught;t ɔ t;verb;215
+218;teaching;t i tʃ ɪ ŋ;verb;215
+219;consider;kəns ɪ d ə;verb;219
+220;considers;kəns ɪ d ə z;verb;219
+221;considered;kəns ɪ d ə d;verb;219
+222;considering;kəns ɪ d ə r ɪ ŋ;verb;219
+223;build;b ɪ l d;verb;223
+224;builds;b ɪ l d z;verb;223
+225;built;b ɪ l t;verb;223
+226;building;b ɪ l d ɪ ŋ;verb;223
+227;continue;kəntɪn j u;verb;227
+228;continues;kəntɪn j u z;verb;227
+229;continued;kəntɪn j u d;verb;227
+230;continuing;kəntɪn j u ɪ ŋ;verb;227
+231;try;t r aɪ;verb;231
+232;tries;t r aɪ z;verb;231
+233;tried;t r aɪ d;verb;231
+234;trying;t r aɪ ɪ ŋ;verb;231
+235;change;tʃ eɪ n dʒ;verb;235
+236;changes;tʃ eɪ n dʒ ɪ z;verb;235
+237;changed;tʃ eɪ n dʒ d;verb;235
+238;changing;tʃ eɪ n dʒ ɪ ŋ;verb;235
+239;follow;fɒ l oʊ;verb;239
+240;follows;fɒ l oʊ z;verb;239
+241;followed;fɒ l oʊ d;verb;239
+242;following;fɒ l oʊ ɪ ŋ;verb;239
+243;stop;s t ɒ p;verb;243
+244;stops;s t ɒ p s;verb;243
+245;stopped;s t ɒ p t;verb;243
+246;stopping;s t ɒ p ɪ ŋ;verb;243
+247;want;wɒ n t;verb;247
+248;wants;wɒ n t s;verb;247
+249;wanted;wɒ n t ɪ d;verb;247
+250;wanting;wɒ n t ɪ ŋ;verb;247
+251;ask;æ s k;verb;251
+252;asks;æ s k s;verb;251
+253;asked;æ s k d;verb;251
+254;asking;æ s k ɪ ŋ;verb;251
+255;try;t r aɪ;verb;255
+256;tries;t r aɪ z;verb;255
+257;tried;t r aɪ d;verb;255
+258;trying;t r aɪ ɪ ŋ;verb;255
+259;love;l ʌ v;verb;259
+260;loves;l ʌ v z;verb;259
+261;loved;l ʌ v d;verb;259
+262;loving;l ʌ v ɪ ŋ;verb;259
+263;work;w ɜ k;verb;263
+264;works;w ɜ k s;verb;263
+265;worked;w ɜ k t;verb;263
+266;working;w ɜ k ɪ ŋ;verb;263
+267;believe;b ɪ l i v;verb;267
+268;believes;b ɪ l i v z;verb;267
+269;believed;b ɪ l i v d;verb;267
+270;believing;b ɪ l i v ɪ ŋ;verb;267
+271;live;l ɪ v;verb;271
+272;lives;l ɪ v z;verb;271
+273;lived;l ɪ v d;verb;271
+274;living;l ɪ v ɪ ŋ;verb;271
+275;seem;s i m;verb;275
+276;seems;s i m z;verb;275
+277;seemed;s i m d;verb;275
+278;seeming;s i m ɪ ŋ;verb;275
+279;hear;h ɪə;verb;279
+280;hears;h ɪə z;verb;279
+281;heard;h ɜ d;verb;279
+282;hearing;h ɪə r ɪ ŋ;verb;279
+283;speak;s p i k;verb;283
+284;speaks;s p i k s;verb;283
+285;spoke;s p əʊ k;verb;283
+286;spoken;s p əʊ k ə n;verb;283
+287;speaking;s p i k ɪ ŋ;verb;283
+288;teach;t i tʃ;verb;288
+289;teaches;t i tʃ ɪ z;verb;288
+290;taught;t ɔ t;verb;288
+291;teaching;t i tʃ ɪ ŋ;verb;288
+292;send;s ɛ n d;verb;292
+293;sends;s ɛ n d z;verb;292
+294;sent;s ɛ n t;verb;292
+295;sending;s ɛ n d ɪ ŋ;verb;292
+296;pay;p eɪ;verb;296
+297;pays;p eɪ z;verb;296
+298;paid;p eɪ d;verb;296
+299;paying;p eɪ ɪ ŋ;verb;296
+300;stop;s t ɒ p;verb;300
+301;stops;s t ɒ p s;verb;300
+302;stopped;s t ɒ p t;verb;300
+303;stopping;s t ɒ p ɪ ŋ;verb;300
+304;want;wɒ n t;verb;304
+305;wants;wɒ n t s;verb;304
+306;wanted;wɒ n t ɪ d;verb;304
+307;wanting;wɒ n t ɪ ŋ;verb;304
+308;run;r ʌ n;verb;308
+309;runs;r ʌ n z;verb;308
+310;ran;r æ n;verb;308
+311;running;r ʌ n ɪ ŋ;verb;308
+312;become;b ɪ k ʌ m;verb;312
+313;becomes;b ɪ k ʌ m z;verb;312
+314;became;b ɪ k eɪ m;verb;312
+315;becoming;b ɪ k ʌ m ɪ ŋ;verb;312
+316;change;tʃ eɪ n dʒ;verb;316
+317;changes;tʃ eɪ n dʒ ɪ z;verb;316
+318;changed;tʃ eɪ n dʒ d;verb;316
+319;changing;tʃ eɪ n dʒ ɪ ŋ;verb;316
+320;believe;b ɪ ˈ l i v;verb;320
+321;believes;b ɪ ˈ l i v z;verb;320
+322;believed;b ɪ ˈ l i v d;verb;320
+323;believing;b ɪ ˈ l i v ɪ ŋ;verb;320
+324;create;k r eɪ eɪ t;verb;324
+325;creates;k r eɪ eɪ t s;verb;324
+326;created;k r eɪ eɪ t ɪ d;verb;324
+327;creating;k r eɪ eɪ t ɪ ŋ;verb;324
+328;follow;fɒ l oʊ;verb;328
+329;follows;fɒ l oʊ z;verb;328
+330;followed;fɒ l oʊ d;verb;328
+331;following;fɒ l oʊ ɪ ŋ;verb;328
+332;study;s t ʌ d i;verb;332
+333;studies;s t ʌ d i z;verb;332
+334;studied;s t ʌ d ɪ d;verb;332
+335;studying;s t ʌ d ɪ ɪ ŋ;verb;332
+336;move;m u v;verb;336
+337;moves;m u v z;verb;336
+338;moved;m u v d;verb;336
+339;moving;m u v ɪ ŋ;verb;336
+340;talk;t ɔ k;verb;340
+341;talks;t ɔ k s;verb;340
+342;talked;t ɔ k d;verb;340
+343;talking;t ɔ k ɪ ŋ;verb;340
+344;wait;w eɪ t;verb;344
+345;waits;w eɪ t s;verb;344
+346;waited;w eɪ t ɪ d;verb;344
+347;waiting;w eɪ t ɪ ŋ;verb;344
+348;help;h ɛ l p;verb;348
+349;helps;h ɛ l p s;verb;348
+350;helped;h ɛ l p t;verb;348
+351;helping;h ɛ l p ɪ ŋ;verb;348
+352;consider;kənˈs ɪ d ə;verb;352
+353;considers;kənˈs ɪ d ə z;verb;352
+354;considered;kənˈs ɪ d ə d;verb;352
+355;considering;kənˈs ɪ d ə r ɪ ŋ;verb;352
+356;build;b ɪ l d;verb;356
+357;builds;b ɪ l d z;verb;356
+358;built;b ɪ l t;verb;356
+359;building;b ɪ l d ɪ ŋ;verb;356
+360;continue;kənˈtɪn j u;verb;360
+361;continues;kənˈtɪn j u z;verb;360
+362;continued;kənˈtɪn j u d;verb;360
+363;continuing;kənˈtɪn j u ɪ ŋ;verb;360
+364;run;r ʌ n;verb;364
+365;runs;r ʌ n z;verb;364
+366;ran;r æ n;verb;364
+367;running;r ʌ n ɪ ŋ;verb;364
+368;seem;s i m;verb;368
+369;seems;s i m z;verb;368
+370;seemed;s i m d;verb;368
+371;seeming;s i m ɪ ŋ;verb;368
+372;ask;æ s k;verb;372
+373;asks;æ s k s;verb;372
+374;asked;æ s k d;verb;372
+375;asking;æ s k ɪ ŋ;verb;372
+376;love;l ʌ v;verb;376
+377;loves;l ʌ v z;verb;376
+378;loved;l ʌ v d;verb;376
+379;loving;l ʌ v ɪ ŋ;verb;376
+380;work;w ɜ k;verb;380
+381;works;w ɜ k s;verb;380
+382;worked;w ɜ k t;verb;380
+383;working;w ɜ k ɪ ŋ;verb;380
+384;believe;b ɪ ˈ l i v;verb;384
+385;believes;b ɪ ˈ l i v z;verb;384
+386;believed;b ɪ ˈ l i v d;verb;384
+387;believing;b ɪ ˈ l i v ɪ ŋ;verb;384
+388;live;l ɪ v;verb;388
+389;lives;l ɪ v z;verb;388
+390;lived;l ɪ v d;verb;388
+391;living;l ɪ v ɪ ŋ;verb;388
+392;study;s t ʌ d i;verb;392
+393;studies;s t ʌ d i z;verb;392
+394;studied;s t ʌ d ɪ d;verb;392
+395;studying;s t ʌ d ɪ ɪ ŋ;verb;392
+396;create;k r eɪ eɪ t;verb;396
+397;creates;k r eɪ eɪ t s;verb;396
+398;created;k r eɪ eɪ t ɪ d;verb;396
+399;creating;k r eɪ eɪ t ɪ ŋ;verb;396
+400;follow;fɒ l oʊ;verb;400

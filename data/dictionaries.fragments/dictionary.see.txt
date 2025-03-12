@@ -1,0 +1,5 @@
+1;see;s i;verb;1  
+2;sees;s i z;verb;1
+3;saw;s ɔ;verb;1
+4;seen;s i n;verb;1 
+5;seeing;s i ɪ ŋ;verb;1
