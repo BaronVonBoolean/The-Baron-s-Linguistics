@@ -1,5 +1,0 @@
-1;write;w r aɪ t;verb;1
-2;writes;w r aɪ t s;verb;1
-3;wrote;roʊ t;verb;1
-4;written;ˈr ɪ t ə n;verb;1
-5;writing;ˈr aɪ t ɪ ŋ;verb;1

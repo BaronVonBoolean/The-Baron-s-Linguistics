@@ -1,22 +1,27 @@
-import { PhoneticAlphabet, PhoneticAnnotation, PhoneticRule, PhoneticRuleset } from "../../types";
-import { Word } from "../word";
-import { PhoneticMutation } from "./PhoneticMutation";
+import {PhoneMap } from "../phonology/PhoneMap";
+import { Word } from "../shared/word";
+import { Phoneme } from "./Phoneme";
 
 export class PhoneticMutationPipeline {
 
-  rules: PhoneticRuleset;
-  alphabet: PhoneticAlphabet;
+  rules: PhoneMap[];
 
-  constructor(ruleset: PhoneticRuleset, alphabet: PhoneticAlphabet) {
+  constructor(ruleset: PhoneMap[]) {
     this.rules = ruleset;
-    this.alphabet = alphabet;
   }
 
-  run(input: Word):Word {
+  run(input: Word, validOutputs:Phoneme[]):Word {
+    let output = input.clone();
     this.rules.forEach(rule => {
-      const mutation = new PhoneticMutation(rule, this.alphabet);
-      input = mutation.mutate(input);
+      const mutation = new PhoneMap(
+        rule.environment, 
+        rule.targetPhoneme, 
+        rule.mapToPhoneme
+      );
+      output = mutation.apply(output, validOutputs);
+
     })
-    return input;
+    
+    return output;
   }
 }

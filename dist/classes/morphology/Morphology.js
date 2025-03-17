@@ -1,42 +1,52 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Morphology = void 0;
-const word_1 = require("../word");
 const Morpheme_1 = require("./Morpheme");
-const promises_1 = __importDefault(require("fs/promises"));
+const PhoneticMutationPipeline_1 = require("../phonology/PhoneticMutationPipeline");
+const FileOps_1 = require("../shared/FileOps");
+const Logger_1 = require("../shared/Logger");
 class Morphology {
-    constructor(vocabulary, annotator) {
+    constructor() {
         this.boundMorphemes = {};
-        this.vocab = vocabulary;
-        this.annotator = annotator;
+    }
+    addBoundMorpheme(morph) {
+        Logger_1.logger.log(`adding bound morpheme ${morph?.ipaParts.join()} with characteristics ${morph?.characteristics.join(', ')}`, Morphology);
+        if (!morph)
+            return;
+        if (!this.boundMorphemes[morph.category])
+            this.boundMorphemes[morph.category] = {};
+        const previousMorphs = this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()];
+        if (!previousMorphs)
+            this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()] = morph.characteristics;
+        else
+            this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()] = [...previousMorphs, ...morph.characteristics];
+    }
+    async loadBoundMorphemesFromString(morphs) {
+        morphs.split('\n')
+            .map(line => FileOps_1.FileOps.parseMorphemeLine(line))
+            .forEach((morph) => {
+            this.addBoundMorpheme(morph);
+        });
+    }
+    async loadBoundMorphemesFromDir(dirpath) {
+        Logger_1.logger.log(`loading morphemes from: ${dirpath}`, Morphology);
+        const morphs = await FileOps_1.FileOps.loadDataClassFromDir(dirpath, 'morphology');
+        morphs.forEach((morph) => {
+            this.addBoundMorpheme(morph);
+        });
     }
     async loadBoundMorphemesFromFile(filepath) {
-        const fileRaw = await promises_1.default.readFile(filepath, 'utf-8');
-        const lines = fileRaw.split('\n');
-        lines.forEach(rule => {
-            const [suffix, inflection] = rule.split('->');
-            const [category, characteristic] = inflection
-                .replaceAll('[', '')
-                .replaceAll(']', '')
-                .split(':');
-            const allCharacteristics = characteristic.split('&');
-            if (!this.boundMorphemes[category.trim()])
-                this.boundMorphemes[category.trim()] = {};
-            const previousMorphs = this.boundMorphemes[category.trim()][suffix.trim()];
-            if (!previousMorphs)
-                this.boundMorphemes[category.trim()][suffix.trim()] = allCharacteristics;
-            else
-                this.boundMorphemes[category.trim()][suffix.trim()] = [...previousMorphs, ...allCharacteristics];
+        const morphs = await FileOps_1.FileOps.loadDataClassFromFile(filepath, 'morphology');
+        morphs.forEach((morph) => {
+            this.addBoundMorpheme(morph);
         });
     }
     attachInflection(word, morph) {
+        Logger_1.logger.log(`attaching inflection to word "${word.text}"`, this.constructor);
         const category = word.category;
-        const morphIpa = morph.ipaParts.join('');
-        if (morphIpa === '') {
-            console.log(`found irregular form ${word.ascii}`);
+        const morphIpa = morph.ipaParts.join(' ');
+        if (morphIpa === ' ') {
+            Logger_1.logger.log(`found irregular form ${word.ascii}`, this.constructor);
             return;
         }
         const viableInflections = this.boundMorphemes[category];
@@ -45,19 +55,20 @@ class Morphology {
         morph.addCharacteristics(viableInflections[morphIpa]);
     }
     getSuffix(word, lemma) {
+        Logger_1.logger.log(`getting suffix for word "${word.text}"`, this.constructor);
         let suffixIpa = word.ipaParts.slice(lemma.ipaParts.length, word.ipaParts.length);
-        let suffixAscii = this.annotator.annotationConvert.ipa2ascii(suffixIpa).join('');
-        const suffixMorpheme = new Morpheme_1.Morpheme(suffixAscii, suffixIpa);
+        const suffixMorpheme = new Morpheme_1.Morpheme(suffixIpa);
         this.attachInflection(word, suffixMorpheme);
         return suffixMorpheme;
     }
     getPrefix(word, lemma) {
+        Logger_1.logger.log(`getting prefix for word "${word.text}"`, this.constructor);
         let prefixIpa = word.ipaParts.slice(0, word.ipaParts.length - lemma.ipaParts.length);
-        let prefixAscii = this.annotator.annotationConvert.ipa2ascii(prefixIpa).join('');
-        const prefixMorpheme = new Morpheme_1.Morpheme(prefixAscii, prefixIpa);
+        const prefixMorpheme = new Morpheme_1.Morpheme(prefixIpa);
         return prefixMorpheme;
     }
     decompose(word) {
+        Logger_1.logger.log(`decomposing word "${word.text}" into morphemes.`, this.constructor);
         if (word.lemma === word)
             return [Morpheme_1.Morpheme.fromWord(word)];
         else if (word.lemma) {
@@ -79,43 +90,65 @@ class Morphology {
             }
         }
         else {
-            throw new Error(`the word ${word.ascii} has no recorded lemma, so it cannot be decomposed.`);
+            return [Morpheme_1.Morpheme.fromWord(word)];
         }
     }
     bulkDecompose(words) {
+        Logger_1.logger.log(`decomposing ${words.length} words into morphemes.`, this.constructor);
         return words.map(wrd => this.decompose(wrd));
     }
-    compose(morphemes) {
-        const ascii = morphemes.map(m => m.ascii).join('');
+    compose(morphemes, vocab) {
+        Logger_1.logger.log(`composing morphemes ${morphemes.map(m => m.ipaParts.join('')).join(' + ')} into a word.`, this.constructor);
+        const ipa = morphemes.map(m => m.ipaParts.join('')).join('');
         const category = morphemes.filter(m => m.category !== 'bound')[0].category;
-        const foundWords = this.vocab.lookup(ascii, { category });
+        const foundWords = vocab.lookup(ipa, { category, field: 'ipa' });
+        if (foundWords.length === 0)
+            new Error(`cannot compose morphemes ${morphemes.map(m => m.ipaParts.join('')).join(' + ')} .`);
         if (foundWords)
             return foundWords[0];
-        throw new Error(`cannot compose morphemes ${morphemes.map(m => m.ascii).join(' + ')} .`);
+        throw new Error(`cannot compose morphemes ${morphemes.map(m => m.ipaParts.join('')).join(' + ')} .`);
     }
     getCharacteristics(word) {
+        Logger_1.logger.log(`getting characteristics for word "${word.text}"`, this.constructor);
         const morphemes = this.decompose(word);
         return morphemes.filter(m => m.boundTo !== undefined).reduce((acc, cur) => acc.concat(cur.characteristics), []);
     }
     ;
-    async mutateBoundMorphemes(mutes) {
-        const cats = Object.keys(this.boundMorphemes);
-        for (let cat of cats) {
-            const morphemes = this.boundMorphemes[cat];
-            const newBoundMorphemeMapping = {};
-            for (let mIpa in morphemes) {
-                const morphAsWord = new word_1.Word(0, {
-                    ipa: mIpa.split('').join(' '),
-                    ascii: this.annotator.annotationConvert.ipa2ascii(mIpa.split('')).join(''),
-                    category: 'none'
-                });
-                const changed = await this.annotator.run(morphAsWord.ascii, mutes, 'ipa');
-                if (changed === null)
-                    throw new Error('mutation failed on bound morphemes');
-                newBoundMorphemeMapping[changed.ipa] = this.boundMorphemes[cat][mIpa];
-            }
-            this.boundMorphemes[cat] = newBoundMorphemeMapping;
-        }
+    cacheToMorphemes() {
+        let morphs = [];
+        const categories = Object.keys(this.boundMorphemes);
+        categories.forEach((category) => {
+            const morphemeIpa = Object.keys(this.boundMorphemes[category]);
+            morphs = morphs.concat(morphemeIpa.map(mChar => {
+                const morpheme = new Morpheme_1.Morpheme([mChar]);
+                morpheme.category = category;
+                morpheme.characteristics = this.boundMorphemes[category][mChar];
+                return morpheme;
+            }));
+        });
+        return morphs;
+    }
+    applyPhonology(phonology) {
+        Logger_1.logger.log(`applying phonology to bound morphemes.`, this.constructor);
+        const categories = Object.keys(this.boundMorphemes);
+        categories.forEach(category => {
+            const morphemeIpa = Object.keys(this.boundMorphemes[category]);
+            morphemeIpa
+                .map(mChar => new Morpheme_1.Morpheme([mChar]))
+                .forEach((morpheme) => {
+                const storedCharacteristics = this.boundMorphemes[category][morpheme.ipaParts.join('')];
+                const mutated = this.applyPhonologyToMorpheme(phonology, morpheme);
+                this.boundMorphemes[category][mutated.ipaParts.join(' ')] = storedCharacteristics;
+            });
+        });
+    }
+    applyPhonologyToMorpheme(phonology, morpheme) {
+        const pipeline = new PhoneticMutationPipeline_1.PhoneticMutationPipeline(phonology.mutations);
+        const mutated = pipeline.run(morpheme.toWord(), phonology.phonemes);
+        return mutated;
+    }
+    async toTable() {
+        return this.cacheToMorphemes().map(m => m.toLine()).join('\n');
     }
 }
 exports.Morphology = Morphology;

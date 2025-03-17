@@ -1,27 +1,60 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PhoneticMutation = void 0;
-const word_1 = require("../word");
-const ipa_1 = require("./adapters/ipa");
 class PhoneticMutation {
-    constructor(rule, alphabet) {
+    constructor(rule) {
         this.rule = rule;
-        this.alphabet = alphabet;
     }
     toString() {
         return `${this.rule.targetPhoneme} -> ${this.rule.mapToPhoneme} : ${this.rule.environment}`;
     }
-    mutate(input) {
-        const output = new word_1.Word(input.id, {
-            ascii: input.ascii,
-            ipa: input.ipaParts.join(' '),
-            category: input.category,
-            lemmaId: input.lemmaId
-        });
-        if (this.alphabet === 'ipa') {
-            const adapter = new ipa_1.IPAAdapter();
-            output.ipaParts = adapter.apply(this.rule, output.ipaParts);
+    matchesEnvironment(input, index) {
+        const [envLeft, envRight] = this.rule.environment.split('_');
+        if (envLeft && envRight) {
+            const inputLeft = input.ipaParts[index - 1];
+            const inputRight = input.ipaParts[index + 1];
+            // handle left word boundary
+            if (envLeft.trim() === '#' &&
+                inputLeft === undefined &&
+                inputRight === envRight.trim())
+                return true;
+            // handle right word boundary
+            if (envRight.trim() === '#' &&
+                inputRight === undefined &&
+                inputLeft === envLeft.trim())
+                return true;
+            // handle exact match
+            return (inputLeft === envLeft.trim() &&
+                inputRight === envRight.trim());
         }
+        // default to false
+        return false;
+    }
+    mutate(input, validOutputs) {
+        const target = validOutputs.find(p => p.ipa === this.rule.targetPhoneme);
+        const mapTo = validOutputs.find(p => p.ipa === this.rule.mapToPhoneme);
+        if (!target || !mapTo) {
+            return input;
+        }
+        const output = mapTo.clone();
+        return output;
+    }
+    apply(input, allPhonemes) {
+        const output = input.clone();
+        const outputIpaParts = [];
+        for (let i = 0; i < input.ipaParts.length; i++) {
+            const currentIpaPart = allPhonemes.find(p => p.ipa === input.ipaParts[i]);
+            if (!currentIpaPart)
+                continue;
+            if (this.matchesEnvironment(input, i)) {
+                const mutated = this.mutate(currentIpaPart, allPhonemes);
+                outputIpaParts.push(mutated.ipa);
+            }
+            else {
+                outputIpaParts.push(currentIpaPart.ipa);
+            }
+        }
+        output.ipaParts = outputIpaParts;
         return output;
     }
 }

@@ -1,4 +1,0 @@
-1;come;k ʌ m;verb;1
-2;comes;k ʌ m z;verb;1
-3;came;keɪ m;verb;1
-4;coming;k ʌ m ɪ ŋ;verb;1

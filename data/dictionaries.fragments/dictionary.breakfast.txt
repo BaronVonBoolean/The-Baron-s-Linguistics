@@ -1,6 +1,0 @@
-1;breakfast;b r ɛ k f ə s t;noun;1
-2;breakfasts;b r ɛ k f ə s t s;noun;1
-3;breakfast;b r ɛ k f ə s t;verb;3
-4;breakfasts;b r ɛ k f ə s t s;verb;3
-5;breakfasted;b r ɛ k f ə s t ɪ d;verb;3
-6;breakfasting;b r ɛ k f ə s t ɪ ŋ;verb;3

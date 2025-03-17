@@ -1,4 +1,0 @@
-1;sleep;s l i p;verb;1
-2;sleeps;s l i p s;verb;1 
-3;slept;s l ɛ p t;verb;1
-4;sleeping;s l i p ɪ ŋ;verb;1 

@@ -1,4 +1,4 @@
-import { Genera, GenericVectors, SelectorPredicate } from "../../types";
+import { SelectorPredicate } from "../../types";
 import { Phoneme } from "./Phoneme";
 
 export class Selector {
@@ -11,7 +11,7 @@ export class Selector {
   }
 
   matches(p: Phoneme) {
-    return this.predicate(p.vectorize(), p.genera);
+    return this.predicate(p.vectors, p.category);
   }
 
 }

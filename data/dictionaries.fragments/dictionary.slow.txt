@@ -1,4 +1,0 @@
-1;slow;s l oʊ;adjective;1
-2;slower;s l oʊ ə r;adjective;1
-3;slowest;s l oʊ ə s t;adjective;1
-1;slowly;s l oʊ l i;adverb;1

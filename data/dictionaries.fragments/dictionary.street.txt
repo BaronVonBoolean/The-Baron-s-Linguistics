@@ -1,2 +1,0 @@
-1;street;s t r i t;noun;1
-2;streets;s t r i t s;noun;1

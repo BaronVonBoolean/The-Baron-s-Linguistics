@@ -1,7 +1,0 @@
-1;still;s t ɪ l l;adverb;1
-2;still;s t ɪ l l;adjective;2
-3;still;s t ɪ l l;noun;3
-4;still;s t ɪ l l;verb;4
-5;stills;s t ɪ l l z;verb;4  
-6;stilled;s t ɪ l d;verb;4
-7;stilling;s t ɪ l ɪ ŋ;verb;4

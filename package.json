@@ -7,12 +7,24 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "buildStart": "npm run build && npm start",
-    "test": "jest"
+    "test": "jest --verbose src/*"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@jest/globals": "^29.7.0",
+    "@types/cli-color": "^2.0.6",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.13.9",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "cli-color": "^2.0.4"
   }
 }

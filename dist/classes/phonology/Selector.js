@@ -7,7 +7,7 @@ class Selector {
         this.predicate = predicate;
     }
     matches(p) {
-        return this.predicate(p.vectorize(), p.genera);
+        return this.predicate(p.vectors, p.category);
     }
 }
 exports.Selector = Selector;

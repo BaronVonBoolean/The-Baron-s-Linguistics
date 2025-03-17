@@ -1,6 +1,0 @@
-1;plant;p l æ n t;noun;1
-2;plants;p l æ n t s;noun;1
-3;plant;p l æ n t;verb;3
-4;plants;p l æ n t s;verb;3
-5;planted;p l æ n t ɪ d;verb;3
-6;planting;p l æ n t ɪ ŋ;verb;3

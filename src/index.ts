@@ -1,36 +1,41 @@
 
-import { Annotator } from "./classes/phonology/Annotator";
-import { compileVocabularyFromDir } from "./processes/compileVocabularyFromDir";
+import { Morphology } from "./classes/morphology/Morphology";
+import { Word } from "./classes/shared/word";
+import { Phonology } from "./classes/phonology/Phonology";
+import { Vocabulary } from "./classes/vocabulary/Vocabulary";
+import { Language } from "./classes/language/Language"; 
+import { Phoneme } from "./classes/phonology/Phoneme";
+import { PhoneMap } from "./classes/phonology/PhoneMap";
 import { translateFile } from "./processes/translateFile";
 
-import { compileMutationsFromDir } from "./processes/compileMutationsFromDir";
-import { Morphology } from "./classes/morphology/Morphology";
-import { PhoneticRule, PhoneticRuleset } from "./types";
-import { PhoneticMutationPipeline } from "./classes/phonology/PhoneticMutationPipeline";
-import { Word } from "./classes/word";
-
-
 async function main() {
-  const mutes:PhoneticRuleset = await compileMutationsFromDir('./data/mutations');
-  const vocab = await compileVocabularyFromDir('./data/dictionaries');
-  const ann = new Annotator(vocab);
-  const morph = new Morphology(vocab, ann);
+  let vocab = new Vocabulary();
+  let phono = new Phonology();
+  let morph = new Morphology();
 
-  await morph.loadBoundMorphemesFromFile('/Users/ianculleton/Documents/node_projects/baron-linguistics/data/morphemes/morpheme.verbTense.txt')
-  await morph.loadBoundMorphemesFromFile('/Users/ianculleton/Documents/node_projects/baron-linguistics/data/morphemes/morpheme.nounPlural.txt')
+  let language = new Language('English', phono, morph, vocab);
 
-  const words = await ann.run('planting', mutes, 'ipa')
-  if(!words) return;
+  await language.load(
+    '/Users/ianculleton/Documents/node_projects/baron-linguistics/data/languages/empty.language.text'
+  );
 
-  // this method updates the bound morphemes stored in the Morphology layer.  It is necessary for the 
-  // Morphology layer to successfully detect the bound morphemes associated with a word.
-  await morph.mutateBoundMorphemes(mutes)
- 
-  const characteristics = morph.getCharacteristics(words)
-  console.log(characteristics)
+  language.addPhoneme(new Phoneme({ id: 1, ipa: 'a', ascii: 'a', category: 'vowel', vectors: '[first]' }))
+  language.addPhoneme(new Phoneme({ id: 2, ipa: 'b', ascii: 'b', category: 'consonant', vectors: '[second]' }))
+  language.addPhoneme(new Phoneme({ id: 2, ipa: 'c', ascii: 'c', category: 'consonant', vectors: '[third]' }))
 
-  // console.log(morph.compose(decomposed))
-  translateFile(ann,'./test-input-file.txt' , mutes);
+  language.addPhoneMap(new PhoneMap('a _ c', 'b', 'c'));
+
+  vocab.addWord(new Word(1, {ascii: 'abc', ipa: 'a b c', category: 'noun', lemmaId: -1}));
+  vocab.addWord(new Word(2, {ascii: 'cba', ipa: 'c b a', category: 'noun', lemmaId: -1}));
+  vocab.addWord(new Word(3, {ascii: 'bac', ipa: 'b a c', category: 'noun', lemmaId: -1}));
+  vocab.addWord(new Word(4, {ascii: 'cab', ipa: 'c a b', category: 'noun', lemmaId: -1}));
+
+  language.addInflection('a b', 'noun',  ['inflected'])
+
+  translateFile(language, 'test-input-file')
+
+  await language.save('./data/languages/autosave.language.text');
+
 }
 
 main();

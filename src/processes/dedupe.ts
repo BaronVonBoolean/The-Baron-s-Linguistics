@@ -1,5 +1,5 @@
 import { Vocabulary } from "../classes/vocabulary/Vocabulary";
-import { Word } from "../classes/word";
+import { Word } from "../classes/shared/word";
 
 
 

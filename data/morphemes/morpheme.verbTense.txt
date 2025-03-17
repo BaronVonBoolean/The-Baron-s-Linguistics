@@ -1,5 +1,0 @@
-t -> [verb:perfect-aspect&past-tense]
-ɪz -> [verb:perfect-aspect&present-tense]
-z -> [verb:perfect-aspect&present-tense]
-s -> [verb:perfect-aspect&present-tense]
-ɪŋ -> [verb:imperfect-aspect&present-tense]

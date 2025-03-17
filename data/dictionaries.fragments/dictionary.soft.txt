@@ -1,4 +1,0 @@
-1;soft;s ɔ f t;adjective;1
-2;softer;s ɔ f t ə r;adjective;1
-3;softest;s ɔ f t ə s t;adjective;1
-1;softly;s ɔ f t l i;adverb;1

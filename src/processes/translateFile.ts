@@ -1,59 +1,21 @@
-import { Annotator } from "../classes/phonology/Annotator";
-import { Word } from "../classes/word";
-import { PhoneticRuleset } from "../types";
-import fs from 'fs/promises'
+import { Language } from "../classes/language/Language";
+import { FileOps } from "../classes/shared/FileOps";
 
+export async function translateFile(language:Language, fileName:string) {
+  const fileContentsRaw = await FileOps.loadFile(`./${fileName}.txt`);
 
+  const mutatedFileContentsAscii = fileContentsRaw
+  .split(' ')
+  .map((text) => language.mutate(language.phonology, language.lookup(text)[0])?.ascii)
+  .join(' ')
 
-export async function translateFile(
-  annotator: Annotator, 
-  filepath:string, 
-  rules:PhoneticRuleset
-):Promise<string> {
-  const fileContents = await fs.readFile(filepath, 'utf8');
-  const linewise = fileContents.split('\n');
+  await FileOps.writeFile(`${fileName}.ascii.txt`, mutatedFileContentsAscii)
 
-  let linewiseAnnotations:Word[][] = await Promise.all(linewise.map(line => annotator.bulkRun('ipa', line, rules)))
-  
-  let asciiStr = '',
-  ipaStr = ''
-  
-  for(let annotations of linewiseAnnotations) {
-    asciiStr += annotations.map(annotation => annotation.ascii).join(' ') + '\n';
-    ipaStr += annotations.map(annotation => annotation.ipa).join(' ') + '\n';
-  
-  }
+  const mutatedFileContentsIpa = fileContentsRaw
+  .split(' ')
+  .map((text) => language.mutate(language.phonology, language.lookup(text)[0])?.ipa)
+  .join(' ')
 
-  function infix(path:string, infix:string):string {
-    const parts = path.split('.');
-    const ext = parts.pop();
-    parts.push(infix);
-    return parts.join('.')+'.'+ext
-  }
+  await FileOps.writeFile(`${fileName}.ipa.txt`, mutatedFileContentsIpa)
 
-  await fs.writeFile(
-    infix(filepath, 'ascii'),
-    '',
-    'utf-8'
-  )
-
-  await fs.appendFile(
-    infix(filepath, 'ascii'),
-    asciiStr,
-    'utf-8'
-  )
-
-  await fs.writeFile(
-    infix(filepath, 'ipa'),
-    '',
-    'utf-8'
-  )
-  
-  await fs.appendFile(
-    infix(filepath, 'ipa'),
-    ipaStr,
-    'utf-8'
-  )
-
-  return infix(filepath, 'ipa');
 }

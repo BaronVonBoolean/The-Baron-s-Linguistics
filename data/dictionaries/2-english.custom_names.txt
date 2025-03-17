@@ -1,9 +1,0 @@
-1;gabriella;ɡ æ b ɹ i ɛ l ə;noun;1
-2;moyer;m ɔ ɪ ɚ;noun;2
-3;tamsyn;t æ m z ɪ n; noun; 3
-4;lockwell;l ɒ k w ɛ l; noun; 4
-
-5;chess;ʧ ɛ s; noun; 5
-6;scapeway;s k eɪ p w eɪ; noun; 6
-7;flight;f l aɪ t; noun; 7
-8;rushlight;r ʌ ʃ l aɪ t; noun; 8
