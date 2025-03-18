@@ -1,7 +1,6 @@
-import * as fs from 'fs/promises';
 import { Phoneme } from "./Phoneme";
 import { Word } from "../shared/word";
-import { PhoneticMutationPipeline } from "./PhoneticMutationPipeline";
+import { PhoneMapPipeline } from "./PhoneMapPipeline";
 import { FileOps } from "../shared/FileOps";
 import { logger } from "../shared/Logger";
 import { PhoneMap } from "./PhoneMap";
@@ -17,6 +16,25 @@ export class Phonology {
   addPhoneMap(phoneMap: PhoneMap) {
     this.mutations.push(phoneMap);
   }
+
+  updatePhoneme(phoneme: Phoneme) {
+    this.phonemes = this.phonemes.map(p => p.id === phoneme.id ? phoneme : p);
+  }
+
+  updatePhoneMap(phoneMap: PhoneMap) {
+    this.mutations = this.mutations.map(m => m.id === phoneMap.id ? phoneMap : m);
+  }
+  
+  lookupPhoneme(asciiKey: string) {
+    return this.phonemes.filter(p => p.ascii === asciiKey);
+  }
+
+  lookupPhoneMap(asciiKey: string) {
+    return this.mutations.filter(
+      m => m.environment.trim() === asciiKey.trim()
+    );
+  }
+  
   loadPhonemesFromString(str:string) {
     str.split('\n').forEach(line => {
       const phoneme = FileOps.parsePhonemeLine(line);
@@ -60,6 +78,7 @@ export class Phonology {
   decompose(word:Word):Phoneme[] {
     logger.log(`decomposing word "${word.ascii}" into phonemes.`, this.constructor);
     const phonemes:Phoneme[] = [];
+
     for(let i = 0; i < word.ipaParts.length; i++) {
       const currentIpaPart = word.ipaParts[i];
       const phoneme = this.phonemes.find(p => p.ipa === currentIpaPart);
@@ -71,7 +90,7 @@ export class Phonology {
 
   mutate(input: Word, mutations:PhoneMap[]):Word {
     logger.log(`mutating word "${input.ascii}" with ${mutations.length} phonetic rules.`, this.constructor);
-    const pipeline:PhoneticMutationPipeline = new PhoneticMutationPipeline(mutations);
+    const pipeline:PhoneMapPipeline = new PhoneMapPipeline(mutations);
     const mutated:Word = pipeline.run(input, this.phonemes);
     const mutatedPhonemes:Phoneme[] = this.decompose(mutated);
     mutated.ascii = mutatedPhonemes.map(p => p.ascii).join('');

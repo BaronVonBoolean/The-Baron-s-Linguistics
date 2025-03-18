@@ -51,11 +51,14 @@ export class Morpheme {
     return `${this.ipaParts.join(' ')} -> [${this.category}:${this.characteristics.join('&')}]`
   }
 
+  clone():Morpheme {
+    return new Morpheme(this.ipaParts);
+  }
+
   static fromLine(line: string):Morpheme {
     const [ipa, coda] = line.split('->').map(s => s.trim());
     const [category, tags] = coda.split(':').map(s => s.trim());
     const tagsArray = tags.split('&').map(t => Util.removePunctuationAndNumbers(t).trim());
-    console.log(tagsArray)
     const morph = new Morpheme(ipa.split(' '));
     morph.category = Util.removePunctuationAndNumbers(category) as MorphemeCategory;
     morph.addCharacteristics(tagsArray);

@@ -3,6 +3,7 @@ import { VocabLookupFilter, WordCategory } from "../../types";
 import fs from 'fs/promises'
 import { FileOps } from "../shared/FileOps";
 import { logger } from "../shared/Logger";
+import ConfigOps from "../shared/ConfigOps";
 
 export class Vocabulary {
   words: Word[] = [];
@@ -43,19 +44,32 @@ export class Vocabulary {
     return
   }
 
-  lookup(asciiKey:string, filters:VocabLookupFilter={}):Word[] { // using an array for storage so lookup time is caca.
-    logger.log(`lookup "${asciiKey}" in vocabulary.`, this.constructor);
-
-    let found = this.words.filter(w => w.text === asciiKey.toLowerCase());
+  _lookupIsEmpty(asciiKey:string) {
     if(asciiKey === '' || asciiKey === ' ') {
       logger.log(`Lookup on empty string.  Skipping.`, this.constructor);
-      return []
+      return false;
     }
-    if (found.length === 0) {
+    return true;
+  }
+
+  _lookupNotFound(lookupResults:Word[], asciiKey:string) {
+    if (lookupResults.length === 0) {
       logger.log(`Word ${asciiKey} not found in dictionary.`, this.constructor);
-      fs.appendFile('./error_words.txt', asciiKey.toLowerCase() + '\n', 'utf-8')
-      throw new Error(`Word ${asciiKey} not found in dictionary`);
+      FileOps.appendFile(
+        `${ConfigOps.getFileCacheFilepath()}/error_words.txt`, 
+        asciiKey.toLowerCase() + '\n'
+      )
+      return true;
     }
+    return false;
+  }
+  lookup(asciiKey:string, filters:VocabLookupFilter={}):Word[] { // using an array for storage so lookup time is caca.
+    logger.log(`lookup "${asciiKey}" in vocabulary.`, this.constructor);
+    if(!this._lookupIsEmpty(asciiKey)) return []
+
+    let found = this.words.filter(w => w.text === asciiKey.toLowerCase());
+    if(this._lookupNotFound(found, asciiKey)) return []
+    
     if (filters && filters.category) found = found.filter(w => w.category === filters.category)
     return found;
   }

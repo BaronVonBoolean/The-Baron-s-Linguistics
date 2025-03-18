@@ -5,10 +5,10 @@ export async function compileMutations(filepath:string):Promise<PhoneMap[]> {
   const rulesFileText = await fs.readFile(filepath, 'utf-8');
   const rules = rulesFileText.split('\n').filter(r => r !== '');
 
-  const compiledRules:PhoneMap[] = rules.map(rule => {
+  const compiledRules:PhoneMap[] = rules.map((rule, idx) => {
     const [mutation, environment] = rule.split(':');
     const [targetPhoneme, mapToPhoneme] = mutation.split('->');
-    return new PhoneMap(environment.trim(), targetPhoneme.trim(), mapToPhoneme.trim())
+    return new PhoneMap(idx, environment.trim(), targetPhoneme.trim(), mapToPhoneme.trim())
   })
 
   return compiledRules;

@@ -1,9 +1,10 @@
-import { VocabLookupFilter, WordCategory } from "../../types";
+import { WordCategory } from "../../types";
 import { Morpheme } from "../morphology/Morpheme";
 import { Morphology } from "../morphology/Morphology";
 import { PhoneMap } from "../phonology/PhoneMap";
 import { Phoneme } from "../phonology/Phoneme";
 import { Phonology } from "../phonology/Phonology";
+import { DecomposedWord } from "../shared/DecomposedWord";
 import { FileOps } from "../shared/FileOps";
 import { logger } from "../shared/Logger";
 import { Util } from "../shared/Util";
@@ -13,43 +14,42 @@ import { Vocabulary } from "../vocabulary/Vocabulary";
 
 type Layer = Phonology | Morphology | Vocabulary | Syntax;
 export class Language {
+  public phonology: Phonology
+  public morphology: Morphology
+  public vocabulary: Vocabulary
+
   constructor(
     public name: string, 
-    public phonology: Phonology, 
-    public morphology: Morphology, 
-    public vocabulary: Vocabulary
   ) {
-    this.name = name;
-    this.phonology = phonology;
-    this.morphology = morphology;
-    this.vocabulary = vocabulary;
+    this.phonology = new Phonology();
+    this.morphology = new Morphology();
+    this.vocabulary = new Vocabulary();
   } 
 
-  decompose(layer: Layer, word: Word) {
-    logger.log(`Sending word "${word.text}" to layer "${layer.constructor.name}" for decomposition`, this.constructor);
-    if(layer instanceof Phonology) {
-      return this.phonology.decompose(word);
-    } else if(layer instanceof Morphology) {
-      return this.morphology.decompose(word);
-    } else if(layer instanceof Vocabulary) {
-      throw new Error('Vocabulary.decompose is not implemented yet');
-    } else if(layer instanceof Syntax) {
-      throw new Error('Syntax.decompose is not implemented yet');
-    }
+  decompose(word: Word) {
+    if(!word) return;
+    const decomposedWord = new DecomposedWord(word.id, word);
+    logger.log(`Sending word "${word.text}" to layer "Phonology" for decomposition`, this.constructor);
+    decomposedWord.phonemes = this.phonology.decompose(word);
+    logger.log(`Sending word "${word.text}" to layer "Morphology" for decomposition`, this.constructor);
+    decomposedWord.morphemes = this.morphology.decompose(word);
+    return decomposedWord;
   }
 
-  mutate(layer: Layer, word: Word) {
-    logger.log(`Sending word "${word.text}" to layer "${layer.constructor.name}" for mutation`, this.constructor);
-    if(layer instanceof Phonology) {
+  mutate(layer: string, word: Word) {
+    if(!word) return;
+
+    logger.log(`Sending word "${word.text}" to layer "${layer}" for mutation`, this.constructor);
+    if(layer === 'Phonology') {
       const result = this.phonology.mutate(word, this.phonology.mutations);
       this.morphology.applyPhonology(this.phonology);
       this.vocabulary.updateWord(result)
       return result;
-    } else if(layer instanceof Morphology) {
+    } else if(layer === 'Morphology') {
       throw new Error('Morphology.mutate is not implemented yet');
-    } else if(layer instanceof Vocabulary) {
+    } else if(layer === 'Vocabulary') {
       throw new Error('Vocabulary.mutate is not implemented yet');
-    } else if(layer instanceof Syntax) {
+    } else if(layer === 'Syntax') {
       throw new Error('Syntax.mutate is not implemented yet');
     }
   }
@@ -67,15 +67,6 @@ export class Language {
     return this.vocabulary.addWord(wrd)
   }
 
-  updateWord(newWord:Word) {
-    this.vocabulary.updateWord(newWord)
-  }
-
-  lookup(asciiKey: string, filters?: VocabLookupFilter) {
-    logger.log(`Sending word "${asciiKey}" to Vocabulary layer for lookup.`, Language)
-    return this.vocabulary.lookup(asciiKey, filters)
-  }
-
   addInflection(ipa: string, category: WordCategory, characteristics: string[]):void {
     const ipaParts = ipa.split(' ')
     const infl = new Morpheme(ipaParts)
@@ -84,6 +75,46 @@ export class Language {
     this.morphology.addBoundMorpheme(infl)
   }
 
+  getWord(asciiKey: string) {
+    return this.vocabulary.lookup(asciiKey)
+  }
+
+  getPhoneme(asciiKey: string) {
+    return this.phonology.lookupPhoneme(asciiKey)
+  }
+
+  getPhoneMap(asciiKey: string) {
+    return this.phonology.lookupPhoneMap(asciiKey)
+  }
+
+  getInflections(ipa: string) {
+    const morphs = this.morphology.cacheToMorphemes();
+    return morphs.filter(m => m.ipaParts.join(' ') === ipa)
+  }
+
+  updateWord(newWord:Word) {
+    logger.log(`Updating word ${newWord.text}`, Language)
+    this.vocabulary.updateWord(newWord)
+  }
+
+  updatePhoneme(newPhoneme:Phoneme) {
+    logger.log(`Updating phoneme ${newPhoneme.ascii}`, Language)
+    this.phonology.updatePhoneme(newPhoneme)
+  }
+
+  updatePhoneMap(newPhoneMap:PhoneMap) {
+    logger.log(`Updating phoneMap ${newPhoneMap.targetPhoneme} -> ${newPhoneMap.mapToPhoneme} : ${newPhoneMap.environment}`, Language)
+    this.phonology.updatePhoneMap(newPhoneMap)
+  }
+
+  updateInflection(ipa: string, category: WordCategory, characteristics: string[]) {
+    logger.log(`Updating inflection ${ipa} with category ${category} and characteristics ${characteristics}`, Language)
+    const ipaParts = ipa.split(' ')
+    const infl = new Morpheme(ipaParts)
+    infl.category = category
+    infl.characteristics = characteristics
+    this.morphology.updateBoundMorpheme(infl)
+  }
 
   // Fileops below.
 

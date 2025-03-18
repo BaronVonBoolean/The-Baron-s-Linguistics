@@ -5,6 +5,13 @@ import { Word } from './word';
 import { logger } from './Logger';
 import { PhoneMap } from '../phonology/PhoneMap';
 export type FileInfix = 'phonology' | 'phonemap' | 'morphology' | 'vocabulary'
+
+const idGen = () => {
+  idGen._id = (idGen._id || 0) + 1;
+  return idGen._id;
+}
+
+idGen._id = 0;
 export class FileOps {
   constructor() {
     throw new Error('Do not instantiate the FileOps class.')
@@ -61,6 +68,7 @@ export class FileOps {
     const wrd = Word.fromLine(line);
     return wrd;
   }
+
   static parsePhonemeLine(line: string):Phoneme | null {
     const [id, ipa, ascii, category, vectors] = line.split(';');
     if(!id || !ipa || !ascii || !category || !vectors) return null;
@@ -79,12 +87,12 @@ export class FileOps {
     const [ mapToPhoneme, environment] = coda.split(':');
     if(!targetPhoneme || !environment || !mapToPhoneme) return null;
     return new PhoneMap(
+      idGen(),
       targetPhoneme.trim(),
       mapToPhoneme.trim(),
       environment.trim()
     );
   }
-
   static parseMorphemeLine(line: string):Morpheme | null {
     if(line.trim() === '') return null;
     const morph = Morpheme.fromLine(line);
@@ -94,5 +102,8 @@ export class FileOps {
 
   static async writeFile(filepath: string, data: string):Promise<void> {
     return await fs.writeFile(filepath, data, 'utf-8');
+  }
+  static async appendFile(filepath: string, data: string):Promise<void> {
+    return await fs.appendFile(filepath, data, 'utf-8');
   }
 }

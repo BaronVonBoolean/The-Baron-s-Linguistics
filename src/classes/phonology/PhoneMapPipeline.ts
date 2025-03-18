@@ -1,8 +1,8 @@
-import {PhoneMap } from "../phonology/PhoneMap";
+import {PhoneMap } from "./PhoneMap";
 import { Word } from "../shared/word";
 import { Phoneme } from "./Phoneme";
 
-export class PhoneticMutationPipeline {
+export class PhoneMapPipeline {
 
   rules: PhoneMap[];
 
@@ -14,6 +14,7 @@ export class PhoneticMutationPipeline {
     let output = input.clone();
     this.rules.forEach(rule => {
       const mutation = new PhoneMap(
+        rule.id,
         rule.environment, 
         rule.targetPhoneme, 
         rule.mapToPhoneme

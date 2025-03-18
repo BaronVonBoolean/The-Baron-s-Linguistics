@@ -1,37 +1,21 @@
-import { Morphology } from "../morphology/Morphology";
-import { Phonology } from "../phonology/Phonology";
-import { Vocabulary } from "../vocabulary/Vocabulary";
-import { FileOps } from "./FileOps";
+import ConfigOps from './ConfigOps';
+import { FileOps } from './FileOps';
 const clc = require("cli-color");
+
+const autosaveTimestamp = Date.now();
+
+export const logToFile = (data:string) => FileOps.appendFile(
+  `./out/artifacts/logs/${autosaveTimestamp}-autosave.log.txt`, 
+  data.replaceAll('', '')
+    .replaceAll('[39m', '')
+    .replaceAll ('[94m', '')
+    .replaceAll('[32m', '\n')
+    .replaceAll('[36m', '\n')
+    .replaceAll('[35m', '\n')
+);
 class Logger {
   private logFunction: (message: string) => void;
-  private logConfig: {[x:string]: any} = {
-    Phonology: {
-      color: clc.blue,
-      active: true,
-      tabLevel: 1
-    },
-    Morphology: {
-      color: clc.green,
-      active: true, 
-      tabLevel: 1
-    },
-    Vocabulary: {
-      color: clc.yellow,
-      active: true,
-      tabLevel: 1
-    },
-    FileOps: {
-      color: clc.magenta,
-      active: true,
-      tabLevel: 2,
-    },
-    Language: {
-      color: clc.cyan,
-      active: true,
-      tabLevel: 0,
-    }
-  }
+  private logConfig: {[x:string]: any} = ConfigOps.getLoggerConfig();
   constructor(logFunction?: (message: string) => void) {
     if(!logFunction) this.logFunction = console.log;
     else this.logFunction = logFunction;
@@ -48,9 +32,10 @@ class Logger {
   log(message: string, sender: any) {
     if(sender.name in this.logConfig) {
       const {tabLevel, color, active} = this.logConfig[sender.name];
+      const colorFn = clc[color];
       if(!active) return;
       message = '  '.repeat(tabLevel) + message;
-      this.logFunction(color(message));
+      this.logFunction(colorFn(message));
     }
   }
 }

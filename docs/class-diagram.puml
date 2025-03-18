@@ -1,0 +1,129 @@
+@startuml Baron Linguistics
+
+' Style settings
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+' Main classes
+class Language {
+    +name: string
+    +phonology: Phonology
+    +morphology: Morphology
+    +vocabulary: Vocabulary
+    +decompose(layer: Layer, word: Word)
+    +mutate(layer: Layer, word: Word)
+    +load(filepath: string)
+    +compile()
+    +save(filepath: string)
+}
+
+class Phonology {
+    +mutations: PhoneMap[]
+    +phonemes: Phoneme[]
+    +decompose(word: Word): Phoneme[]
+    +mutate(word: Word, mutations: PhoneMap[]): Word
+    +loadPhonemesFromFile(filepath: string)
+    +loadMutationsFromFile(filepath: string)
+}
+
+class Morphology {
+    +boundMorphemes: Map<string, any>
+    +loadBoundMorphemesFromFile(filepath: string)
+    +loadBoundMorphemesFromString(morphs: string)
+    +addBoundMorpheme(morph: Morpheme)
+}
+
+class Vocabulary {
+    +words: Word[]
+    +curIdx: number
+    +loadFromFile(fp: string)
+    +lookup(asciiKey: string, filters?: VocabLookupFilter): Word[]
+    +addWord(word: Word)
+    +removeWord(ascii: string)
+}
+
+class Word {
+    +id: number
+    +text: string
+    +ascii: string
+    +ipaParts: string[]
+    +category: WordCategory
+    +lemmaId: number
+    +lemma?: Word
+    +ipa: string
+    +fromLine(line: string): Word
+    +toLine(): string
+    +clone(): Word
+}
+
+class Phoneme {
+    +id: number
+    +ipa: string
+    +ascii: string
+    +category: string
+    +vectors: string
+}
+
+class PhoneMap {
+    +targetPhoneme: string
+    +mapToPhoneme: string
+    +environment: string
+}
+
+class Morpheme {
+    +ipaParts: string[]
+    +characteristics: string[]
+    +category: MorphemeCategory
+    +boundTo?: Morpheme
+    +modifiedBy: Morpheme[]
+    +bindTo(morph: Morpheme)
+    +unbind()
+    +toWord(): Word
+}
+
+class FileOps {
+    +{static} loadDataClassFromFile(filepath: string, infix: FileInfix)
+    +{static} parsePhonemeLine(line: string): Phoneme
+    +{static} parseMutationLine(line: string): PhoneMap
+    +{static} parseMorphemeLine(line: string): Morpheme
+    +{static} parseVocabularyLine(line: string): Word
+}
+
+class Logger {
+    -logFunction: Function
+    -logConfig: Map<string, any>
+    +log(message: string, sender: any)
+}
+
+' Relationships
+Language "1" *-- "1" Phonology
+Language "1" *-- "1" Morphology
+Language "1" *-- "1" Vocabulary
+
+Vocabulary "1" o-- "*" Word
+Word "1" --> "0..1" Word : lemma
+
+Phonology "1" o-- "*" Phoneme
+Phonology "1" o-- "*" PhoneMap
+
+Morphology "1" o-- "*" Morpheme
+Morpheme "1" --> "0..1" Morpheme : boundTo
+Morpheme "1" --> "*" Morpheme : modifiedBy
+Morpheme ..> Word : converts to
+
+' Utility class relationships
+FileOps ..> Word : creates
+FileOps ..> Phoneme : creates
+FileOps ..> PhoneMap : creates
+FileOps ..> Morpheme : creates
+
+Logger ..> Language : logs
+Logger ..> Phonology : logs
+Logger ..> Morphology : logs
+Logger ..> Vocabulary : logs
+Logger ..> FileOps : logs
+
+@enduml

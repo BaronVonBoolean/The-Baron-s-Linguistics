@@ -3,7 +3,7 @@ import { Word } from "../shared/word";
 import { Morpheme, MorphemeCategory } from "./Morpheme";
 import fs from 'fs/promises'
 import { WordCategory } from "../../types";
-import { PhoneticMutationPipeline } from "../phonology/PhoneticMutationPipeline";
+import { PhoneMapPipeline } from "../phonology/PhoneMapPipeline";
 import { Phonology } from "../phonology/Phonology";
 import { FileOps } from "../shared/FileOps";
 import { logger } from "../shared/Logger";
@@ -20,6 +20,14 @@ export class Morphology {
     const previousMorphs = this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()];
     if(!previousMorphs) this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()] = morph.characteristics;
     else this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()] = [...previousMorphs, ...morph.characteristics];
+  }
+
+  updateBoundMorpheme(morph:Morpheme):void {
+    logger.log(`updating bound morpheme ${morph?.ipaParts.join()} with characteristics ${morph?.characteristics.join(', ')}`, Morphology)
+    if(!morph) return;
+    if(!this.boundMorphemes[morph.category]) return;
+    if(!this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()]) return;
+    this.boundMorphemes[morph.category][morph.ipaParts.join(' ').trim()] = morph.characteristics;
   }
 
   async loadBoundMorphemesFromString(morphs:string):Promise<void> {
@@ -129,9 +137,10 @@ export class Morphology {
       const morphemeIpa:string[] = Object.keys(this.boundMorphemes[category]);
       morphs = morphs.concat(
         morphemeIpa.map(mChar => {
-          const morpheme = new Morpheme([mChar])
+          const morpheme = new Morpheme(mChar.split(' '))
           morpheme.category = category as MorphemeCategory
           morpheme.characteristics = this.boundMorphemes[category][mChar]
+          console.log('morpheme', morpheme)
           return morpheme
         })
       )
@@ -155,7 +164,7 @@ export class Morphology {
   }
 
   applyPhonologyToMorpheme(phonology:Phonology, morpheme:Morpheme):Word {
-    const pipeline:PhoneticMutationPipeline = new PhoneticMutationPipeline(phonology.mutations);
+    const pipeline:PhoneMapPipeline = new PhoneMapPipeline(phonology.mutations);
     const mutated:Word = pipeline.run(morpheme.toWord(), phonology.phonemes);
     return mutated;
   }

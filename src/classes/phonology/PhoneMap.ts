@@ -2,11 +2,22 @@ import { Word } from "../shared/word";
 import { Phoneme } from "./Phoneme";
 
 export class PhoneMap {
+
   constructor(
+    public id: number,
     public environment: string,
     public targetPhoneme: string,
-    public mapToPhoneme: string
+    public mapToPhoneme: string,
   ) {}
+
+  clone():PhoneMap {
+    return new PhoneMap(
+      this.id,
+      this.environment, 
+      this.targetPhoneme, 
+      this.mapToPhoneme,
+    );
+  }
 
   mutate(input: Phoneme, validOutputs:Phoneme[]):Phoneme {
     const target = validOutputs.find(p => p.ipa === this.targetPhoneme);
