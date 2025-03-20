@@ -38,7 +38,7 @@ new PhoneMap('[voiced]', '*', '[voiceless]')
 
 ## Test Coverage
 
-Check out the unit test summary for the current build (here!)[./test-report.html]
+Check out the unit test summary for the current build [here!](./test-report.html)
 
 ## Contributing
 
