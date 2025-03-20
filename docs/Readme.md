@@ -2,4 +2,4 @@
 
 ## The Baron's Linguistics
 
-### How it Works
+### How it Works:
