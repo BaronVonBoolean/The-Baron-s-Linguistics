@@ -22,8 +22,10 @@ function makeDescribeBlock(describe) {
 function makeTestResultBlock(testResult) {
   const testResultFileHeader = document.createElement('div');
   testResultFileHeader.innerHTML = `<div>${ testResult.name.split('/').pop().split('.').shift() }</div>`;
-  const results = testResult.assertionResults.map(assertion => makeDescribeBlock(assertion));
-  console.log(results)
-  testResultFileHeader.append(...results);
+  
+  testResult.assertionResults
+  .map(assertion => makeDescribeBlock(assertion))
+  .forEachEach(result => testResultFileHeader.append(result));
+  
   return testResultFileHeader;
 }
