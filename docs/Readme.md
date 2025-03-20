@@ -44,6 +44,3 @@ Check out the unit test summary for the current build (here!)[./test-report.html
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-[Add your license here]
