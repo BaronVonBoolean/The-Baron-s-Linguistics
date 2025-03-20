@@ -1,12 +1,12 @@
 const results  = fetch('./test-results.json')
   .then(response => response.json())
-  .then(data => {
-    console.log(data);
+  .then(parsedResults => {
+    summary.innerHTML = `
+      <span>${parsedResults.numPassedTests}</span> tests passed, 
+      <span>${parsedResults.numFailedTests}</span> tests failed, 
+      <span>${parsedResults.numPendingTests}</span> tests pending
+    `;
   });
 
-
-document.getElementById('test-results-summary').innerHTML = `
-  <span>${results.numPassedTests}</span> tests passed, 
-  <span>${results.numFailedTests}</span> tests failed, 
-  <span>${results.numPendingTests}</span> tests pending
-`;
+  const summary = document.getElementById('test-results-summary');
+console.log(summary);
