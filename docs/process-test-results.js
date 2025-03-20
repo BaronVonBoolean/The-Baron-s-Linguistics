@@ -5,8 +5,9 @@ const results  = fetch('./test-results.json')
     const testResultsElement = document.getElementById('test-results');
 
     parsedResults.testResults.forEach(file => {
+      console.log('>>>', file);
       const fileBlock = document.createElement('div');
-      fileBlock.innerHTML = `<h3>${ file.name.split('/').pop() }</h3>`;
+      fileBlock.innerHTML = `<div>${ file.name.split('/').pop() }</div>`;
       testResultsElement.append(fileBlock);
     })
 
