@@ -25,7 +25,7 @@ function makeTestResultBlock(testResult) {
   
   testResult.assertionResults
   .map(assertion => makeDescribeBlock(assertion))
-  .forEach(result => testResultFileHeader.appendChild(result));
+  .forEach(result => testResultsElement.appendChild(result));
 
   return testResultFileHeader;
 }
