@@ -4,3 +4,9 @@ const results  = fetch('./test-results.json')
     console.log(data);
   });
 
+
+document.getElementById('test-results-summary').innerHTML = `
+  <span>${results.numPassedTests}</span> tests passed, 
+  <span>${results.numFailedTests}</span> tests failed, 
+  <span>${results.numPendingTests}</span> tests pending
+`;
