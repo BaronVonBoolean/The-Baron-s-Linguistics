@@ -1,4 +1,4 @@
-# Phonological Selector System
+# Phonological Selector System:
 
 A powerful system for defining and applying phonological rules using feature-based selectors.
 
