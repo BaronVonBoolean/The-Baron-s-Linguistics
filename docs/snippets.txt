@@ -1,0 +1,3 @@
+Prompt to generate new lines for a Vocabulary:
+
+please continue this list alphabetically.  You may refer to an English dictionary.  Generate the next 200 lines.  the format for each line is `<index>;<word-ascii>;<word-ipa>;<word-category>;<id-of-lemma>`.  Please include all inflections and derivations of every lemma form you include.

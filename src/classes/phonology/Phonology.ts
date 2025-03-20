@@ -25,8 +25,8 @@ export class Phonology {
     this.mutations = this.mutations.map(m => m.id === phoneMap.id ? phoneMap : m);
   }
   
-  lookupPhoneme(asciiKey: string) {
-    return this.phonemes.filter(p => p.ascii === asciiKey);
+  lookupPhoneme(ipaKey: string) {
+    return this.phonemes.filter(p => p.ipa === ipaKey);
   }
 
   lookupPhoneMap(asciiKey: string) {

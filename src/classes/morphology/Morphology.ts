@@ -66,7 +66,11 @@ export class Morphology {
     }
 
     const viableInflections = this.boundMorphemes[category];
-    if(!viableInflections || !viableInflections[morphIpa]) throw new Error(`Morpheme ${morphIpa} is not a valid inflection for the category ${category}`);
+    if(!viableInflections || !viableInflections[morphIpa]) {
+      logger.log(`no inflection found for ${morphIpa}`, this.constructor);
+      FileOps.writeFile(`./out/artifacts/logs/no-inflections.txt`, `${word.text};${morphIpa}\n`)
+      return;
+    }
     morph.addCharacteristics(viableInflections[morphIpa]);
   }
 
@@ -140,7 +144,6 @@ export class Morphology {
           const morpheme = new Morpheme(mChar.split(' '))
           morpheme.category = category as MorphemeCategory
           morpheme.characteristics = this.boundMorphemes[category][mChar]
-          console.log('morpheme', morpheme)
           return morpheme
         })
       )

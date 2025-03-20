@@ -1,16 +1,11 @@
+import { Phoneme } from "../classes/phonology/Phoneme";
 
-
-export type PhoneMap = {
-  environment: string,
-  targetPhoneme: string,
-  mapToPhoneme: string
-}
 
 export type WordCategory = 'verb' | 'noun' | 'determiner' | 'none'
 
 export type WordOptions = {ascii: string, ipa: string, category: WordCategory, lemmaId?: number}
 
-export type SelectorPredicate = (vectors: string[], genera: string) => boolean;
+export type SelectorPredicate = (vectors: string[], phoneme: Phoneme) => boolean;
 
 export type Genera = 'vocalic' | 'pulmonic' | 'non-pulmonic' | 'boundary'
 export type VowelHeight = 'close' | 'close-mid' | 'mid' | 'open-mid' | 'open' 

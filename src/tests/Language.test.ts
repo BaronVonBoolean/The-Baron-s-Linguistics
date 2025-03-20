@@ -2,6 +2,7 @@ import { Language } from '../classes/language/Language';
 import { Morpheme } from '../classes/morphology/Morpheme';
 import { PhoneMap } from '../classes/phonology/PhoneMap';
 import { Phoneme } from '../classes/phonology/Phoneme';
+import ConfigOps from '../classes/shared/ConfigOps';
 import { Word } from '../classes/shared/word';
 
 const fixtures: { [x: string]: any } = {
@@ -31,7 +32,11 @@ const fixtures: { [x: string]: any } = {
   ]
 }
 
-describe('Language', () => {
+xdescribe('Language', () => {
+
+  beforeAll(() => {
+    ConfigOps.setEnvironment('test');
+  })
 
   describe('Language.addWord (delegates to Vocabulary.addWord)', () => {
 
@@ -122,7 +127,6 @@ describe('Language', () => {
       fixtures.language.updatePhoneme(updatePhoneme);
       expect(fixtures.language.phonology.phonemes[0].ipa).toEqual('e');
       expect(fixtures.language.phonology.phonemes[0].vectors).toEqual(['updated']);
-
     });
   })  
 

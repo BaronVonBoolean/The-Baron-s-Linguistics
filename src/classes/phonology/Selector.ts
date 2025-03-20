@@ -11,7 +11,10 @@ export class Selector {
   }
 
   matches(p: Phoneme) {
-    return this.predicate(p.vectors, p.category);
+    if(!(p instanceof Phoneme)) {
+      return false;
+    }
+    return this.predicate(p.vectors, p);
   }
 
 }

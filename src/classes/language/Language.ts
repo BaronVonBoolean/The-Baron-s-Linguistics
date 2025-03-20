@@ -36,8 +36,8 @@ export class Language {
     return decomposedWord;
   }
 
-  mutate(layer: string, word: Word) {
-    if(!word) return;
+  mutate(layer: string, word: Word):Word {
+    if(!word) return word;
 
     logger.log(`Sending word "${word.text}" to layer "${layer}" for mutation`, this.constructor);
     if(layer === 'Phonology') {
@@ -52,6 +52,8 @@ export class Language {
     } else if(layer === 'Syntax') {
       throw new Error('Syntax.mutate is not implemented yet');
     }
+
+    return word;
   }
 
 

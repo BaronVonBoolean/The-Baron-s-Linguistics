@@ -1,4 +1,5 @@
 import { Language } from "../classes/language/Language";
+import { PhoneMap } from "../classes/phonology/PhoneMap";
 import { FileOps } from "../classes/shared/FileOps";
 import { Util } from "../classes/shared/Util";
 

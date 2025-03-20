@@ -1,29 +1,38 @@
-import {config} from '../../../baron.config';
+import { environments } from '../../../baron.config';
+
+type EnvironmentLabel = 'test' | 'development' | 'production';
 
 export class ConfigOps {
 
+  static config = environments['development'];
+  
+  static setEnvironment(environment: EnvironmentLabel) {
+    console.log('Setting environment to:', environment);
+    ConfigOps.config = environments[environment];
+  }
+
   static getConfig() {
-    return config;
+    return ConfigOps.config;
   }
 
   static getInputFilepath() {
-    return config.input;
+    return ConfigOps.config.input;
   }
 
   static getOutputFilepath() {
-    return config.output;
+    return ConfigOps.config.output;
   }
 
   static getLanguageFilepath() {
-    return config.language;
+    return ConfigOps.config.language;
   }
 
   static getFileCacheFilepath() {
-    return config.fileCache;
+    return ConfigOps.config.fileCache;
   }
 
   static getLoggerConfig() {
-    return config.logger;
+    return ConfigOps.config.logger;
   }
 }
 
