@@ -36,6 +36,10 @@ new PhoneMap('[vowel] _ d', '*', 'a')
 new PhoneMap('[voiced]', '*', '[voiceless]')
 ```
 
+## Test Coverage
+
+Check out the unit test summary for the current build (here!)[./test-report.html]
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
