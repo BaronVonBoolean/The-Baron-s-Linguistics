@@ -2,7 +2,6 @@ const results  = fetch('./test-results.json')
 .then(response => response.json())
 .then(parsedResults => {
   const summary = document.getElementById('test-results-summary');
-  const testResultsElement = document.getElementById('test-results');
 
   parsedResults.testResults.forEach(file => makeTestResultBlock(file));
 
@@ -20,6 +19,7 @@ function makeDescribeBlock(describe) {
 }
 
 function makeTestResultBlock(testResult) {
+  const testResultsElement = document.getElementById('test-results');
   const testResultFileHeader = document.createElement('div');
   testResultFileHeader.innerHTML = `<div>${ testResult.name.split('/').pop().split('.').shift() }</div>`;
   
