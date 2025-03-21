@@ -21,4 +21,16 @@ export class DecomposedWord extends Word {
     const header = `${this.id};\t${this.ascii} /${phonemes}/ (${this.category}${characteristics}) [${morphemes}] ${lemma}`
     return header + ''
   }
+
+  override clone():DecomposedWord {
+    const newWord = new DecomposedWord(this.id, {
+      ascii: this.ascii,
+      ipa: this.ipaParts.join(' '),
+      category: this.category,
+      lemmaId: this.lemmaId
+    })
+    newWord.phonemes = this.phonemes.map(p => p.clone());
+    newWord.morphemes = this.morphemes.map(m => m.clone());
+    return newWord
+  }
 }

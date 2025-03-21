@@ -18,32 +18,32 @@ export const environments = {
   
       Phonology: {
         color: 'green',
-        active: true,
+        active: false,
         tabLevel: 1
       }, 
       Morphology: {
         color: 'magenta',
-        active: true, 
+        active: false, 
         tabLevel: 1
       },
       Vocabulary: {
         color: 'cyan',
-        active: true,
+        active: false,
         tabLevel: 1
       },
       FileOps: {
         color: 'whiteBright',
-        active: true,
+        active: false,
         tabLevel: 3
       },
       Syntax: {
         color: 'orange',
-        active: true,
+        active: false,
         tabLevel: 1
       },
       Language: {
         color: 'blueBright',
-        active: true,
+        active: false,
         tabLevel: 0
       }
     }

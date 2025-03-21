@@ -123,4 +123,8 @@ export class SELECTORS {
   static diphthong = new Selector('[diphthong]', 
     (vectors:string[]) => vectors.includes('diphthong')
   )
+
+  static wordBoundary = new Selector('#', 
+    (vectors:string[], phoneme:Phoneme) => !phoneme
+  )
 }

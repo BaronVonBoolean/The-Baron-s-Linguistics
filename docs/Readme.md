@@ -8,13 +8,16 @@ A powerful system for defining and applying phonological rules using feature-bas
     <th>Section Title</th>
   </tr>
   <tr>
-    <td>1.</td><td><a href="#overview">Overview</a></td>
+    <td>1.</td>
+    <td><a href="#overview">Overview</a></td>
   </tr>
   <tr>
-    <td>2.</td><td><a href="#test-coverage">Feature support<a></td>
+    <td>2.</td>
+    <td><a href="#test-coverage">Feature support<a></td>
   </tr>
     <tr>
-    <td>3.</td><td><a href=./selectors.md">Selectors<a></td>
+    <td>3.</td>
+    <td><a href=./selectors.md">Selectors<a></td>
   </tr>
 </table>
 

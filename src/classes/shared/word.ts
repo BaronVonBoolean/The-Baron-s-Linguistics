@@ -1,6 +1,5 @@
 import { WordCategory, WordOptions } from '../../types';
 
-
 export class Word {
   id:number = 0;
   text: string = '';
@@ -16,6 +15,7 @@ export class Word {
     this.ascii = opts.ascii;
     this.ipaParts = opts.ipa.split(' ');
     this.category = opts.category;
+    if(opts.ipa === '') this.ipaParts = []; // handle empty IPA string edge case.
     if(opts.lemmaId) this.lemmaId = opts.lemmaId;
   }
 
@@ -48,4 +48,6 @@ export class Word {
     newWord.lemma = this.lemma;
     return newWord;
   }
+  
 }
+
