@@ -2,43 +2,32 @@
 
 A powerful system for defining and applying phonological rules using feature-based selectors.
 
+<table>
+  <tr>
+    <th>#</th>
+    <th>Section Title</th>
+  </tr>
+  <tr>
+    <td>1.</td><td><a href="#overview">Overview</a></td>
+  </tr>
+  <tr>
+    <td>2.</td><td><a href="#test-coverage">Feature support<a></td>
+  </tr>
+    <tr>
+    <td>3.</td><td><a href=./selectors.md">Selectors<a></td>
+  </tr>
+</table>
+
 ## Overview
 
 This system allows you to define phonological transformations using a simple selector syntax. Selectors can target phonemes based on their features (like [vowel], [consonant], [voiced], etc.) and their position in words.
 
-## Selectors
-
-The Baron supports a number of selectors.  See the reference [here](./selectors.md)
-
-## Usage
-
-Selectors can be used to define phonological rules. Each rule has the format:
-```typescript
-new PhoneMap(environment, targetPhoneme, mapToPhoneme)
-```
-
-For example:
-```typescript
-// Rule: Convert 'b' to 'c' when it appears between 'a' and 'c'
-new PhoneMap('a _ c', 'b', 'c')
-
-// Rule: Convert any voiced consonant to 'c' when it appears before 'e'
-new PhoneMap('[voiced] _ e', 'd', 'c')
-```
-
-## Examples
-
-```typescript
-// Convert all vowels to 'a' when they appear before 'd'
-new PhoneMap('[vowel] _ d', '*', 'a')
-
-// Convert all voiced consonants to their voiceless counterparts
-new PhoneMap('[voiced]', '*', '[voiceless]')
-```
 
 ## Test Coverage
 
-Check out the unit test summary for the current build [here!](./test-report.html)
+This codebase is tested with each release to ensure that the features are working properly.  If you'd like to verify that the current build is functioning properly, you can refer to [this page!](./test-report.html)
+
+
 
 ## Contributing
 
