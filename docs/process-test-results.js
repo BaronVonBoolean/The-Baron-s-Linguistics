@@ -34,7 +34,7 @@ function makeTestResultBlock(testResult) {
   refreshBindings();
 
   const testResultFileHeader = document.createElement('div');
-  testResultFileHeader.innerHTML = `<div>${ testResult.name.split('/').pop().split('.').shift() }</div>`;
+  testResultFileHeader.innerHTML = `<div>${testResult.ancestorTitles.join(' ▶ ')} ▶ ${ testResult.name.split('/').pop().split('.').shift() }</div>`;
   
   testResult.assertionResults
   .map(assertion => makeDescribeBlock(assertion))

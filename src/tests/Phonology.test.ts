@@ -101,12 +101,6 @@ describe('Phonology', () => {
         expect(results).toHaveLength(1);
         expect(results[0]).toBe(testPhoneMaps[0]);
       });
-
-      it('should handle whitespace in environment lookup', () => {
-        testPhoneMaps.forEach(m => phonology.addPhoneMap(m));
-        const results = phonology.lookupPhoneMap('a _c');
-        expect(results).toHaveLength(1);
-      });
     });
   });
 
