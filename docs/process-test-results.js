@@ -32,9 +32,12 @@ function makeDescribeBlock(describe) {
 
 function makeTestResultBlock(testResult) {
   refreshBindings();
-
+  let path = ''
+  if(testResult.ancestorTitles.length > 0) {
+    path = testResult.ancestorTitles.join(' ▶ ');
+  }
   const testResultFileHeader = document.createElement('div');
-  testResultFileHeader.innerHTML = `<div>${testResult.ancestorTitles.join(' ▶ ')} ▶ ${ testResult.name.split('/').pop().split('.').shift() }</div>`;
+  testResultFileHeader.innerHTML = `<div>${path} ▶ ${ testResult.name.split('/').pop().split('.').shift() }</div>`;
   
   testResult.assertionResults
   .map(assertion => makeDescribeBlock(assertion))
