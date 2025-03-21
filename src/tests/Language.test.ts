@@ -32,7 +32,7 @@ const fixtures: { [x: string]: any } = {
   ]
 }
 
-xdescribe('Language', () => {
+describe('Language', () => {
 
   beforeAll(() => {
     ConfigOps.setEnvironment('test');

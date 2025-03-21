@@ -1,10 +1,3 @@
-# Phonological Selector System:
-
-A powerful system for defining and applying phonological rules using feature-based selectors.
-
-## Overview
-
-This system allows you to define phonological transformations using a simple selector syntax. Selectors can target phonemes based on their features (like [vowel], [consonant], [voiced], etc.) and their position in words.
 
 ## Basic Selectors
 
@@ -68,6 +61,7 @@ This system allows you to define phonological transformations using a simple sel
 ## Usage
 
 Selectors can be used to define phonological rules. Each rule has the format:
+
 ```typescript
 new PhoneMap(environment, targetPhoneme, mapToPhoneme)
 ```
@@ -90,11 +84,3 @@ new PhoneMap('[vowel] _ d', '*', 'a')
 // Convert all voiced consonants to their voiceless counterparts
 new PhoneMap('[voiced]', '*', '[voiceless]')
 ```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-[Add your license here]

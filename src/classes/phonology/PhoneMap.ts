@@ -107,6 +107,7 @@ export class PhoneMap {
       selectorMatchesVector(SELECTORS.dental);
       selectorMatchesVector(SELECTORS.postalveolar);
       selectorMatchesVector(SELECTORS.glottal);
+      selectorMatchesVector(SELECTORS.wordBoundary);
       
       return matchLeft && matchRight && matchEnv;
     }

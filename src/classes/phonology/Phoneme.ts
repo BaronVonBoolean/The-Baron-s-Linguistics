@@ -26,6 +26,7 @@ export class Phoneme {
     this.ascii = ascii;
     this.category = category;
     this.vectors = vectors.substring(1, vectors.length - 1).split('&');
+    if(vectors === '[]') this.vectors = [];
   }
 
   clone():Phoneme {

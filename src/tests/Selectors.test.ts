@@ -61,7 +61,7 @@ const fixtures: { [x: string]: any } = {
 
 describe('Selectors', () => {
   beforeAll(() => {
-    ConfigOps.setEnvironment('test');
+    
   })
 
   beforeEach(() => {
