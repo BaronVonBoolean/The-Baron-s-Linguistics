@@ -6,8 +6,8 @@ import { logger } from "../shared/Logger";
 import ConfigOps from "../shared/ConfigOps";
 
 export class Vocabulary {
-  words: Word[] = [];
-  curIdx: number = 1;
+  public words: Word[] = [];
+  public curIdx: number = 1;
 
   loadWordsFromString(str:string) {
     str.split('\n').forEach(line => {
