@@ -43,4 +43,4 @@ async function main() {
   await language.save('./out/artifacts/languages/autosave.language.txt');
 }
 
-main();
+// main();

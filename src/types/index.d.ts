@@ -1,6 +1,5 @@
 import { Phoneme } from "../classes/phonology/Phoneme";
 
-
 export type WordCategory = 'verb' | 'noun' | 'determiner' | 'none'
 
 export type WordOptions = {ascii: string, ipa: string, category: WordCategory, lemmaId?: number}

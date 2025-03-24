@@ -1,5 +1,5 @@
 import { Word } from "../shared/word";
-import { VocabLookupFilter, WordCategory } from "../../types";
+import { VocabLookupFilter, WordCategory } from "../../types/index.d";
 import fs from 'fs/promises'
 import { FileOps } from "../shared/FileOps";
 import { logger } from "../shared/Logger";
