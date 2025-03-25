@@ -13,6 +13,13 @@ import { SELECTORS } from "./classes/phonology/SelectorsService";
 import { Phoneme } from "./classes/phonology/Phoneme";
 import { DecomposedWord } from "./classes/shared/DecomposedWord";
 
+declare module 'baron-linguistics' {
+    export function Language(name: string): Language;
+    export function Morphology(language: Language): Morphology;
+    export function Phonology(language: Language): Phonology;
+    export function Vocabulary(language: Language): Vocabulary;
+}
+
 export default { 
   Language, 
   Morphology, 
@@ -28,16 +35,16 @@ export default {
   DecomposedWord,
 };
 
-async function main() {
+// async function main() {
 
-  // logger.stdOut = logToFile
-  let language = new Language('English');
+//   // logger.stdOut = logToFile
+//   let language = new Language('English');
 
-  await language.load('/Users/ianculleton/Documents/node_projects/baron-linguistics/data/languages/autogen.language.txt');
-  // translateFile(language, 'test-input-file');
-  decomposeFile(language, 'test-input-file');
+//   await language.load('/Users/ianculleton/Documents/node_projects/baron-linguistics/data/languages/autogen.language.txt');
+//   // translateFile(language, 'test-input-file');
+//   decomposeFile(language, 'test-input-file');
 
-  await language.save('./out/artifacts/languages/autosave.language.txt');
-}
+//   await language.save('./out/artifacts/languages/autosave.language.txt');
+// }
 
 // main();
