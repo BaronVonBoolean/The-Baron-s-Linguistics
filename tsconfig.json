@@ -4,6 +4,8 @@
       "./node_modules/@types",
       "./src/types"
     ],
+    "declaration": true,
+    "emitDeclarationOnly": true,
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */

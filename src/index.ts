@@ -1,4 +1,3 @@
-
 import { Language } from "./classes/language/Language"; 
 import { decomposeFile } from "./processes/decomposeFile";
 import { translateFile } from "./processes/translateFile";
@@ -14,7 +13,6 @@ import { SELECTORS } from "./classes/phonology/SelectorsService";
 import { Phoneme } from "./classes/phonology/Phoneme";
 import { DecomposedWord } from "./classes/shared/DecomposedWord";
 
-
 export default { 
   Language, 
   Morphology, 
@@ -29,7 +27,6 @@ export default {
   SELECTORS,
   DecomposedWord,
 };
- 
 
 async function main() {
 
