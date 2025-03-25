@@ -1,39 +1,30 @@
-import { Language } from "./classes/language/Language"; 
-import { decomposeFile } from "./processes/decomposeFile";
-import { translateFile } from "./processes/translateFile";
-import { Morphology } from "./classes/morphology/Morphology";
-import { Phonology } from "./classes/phonology/Phonology";
-import { Vocabulary } from "./classes/vocabulary/Vocabulary";
-import { Morpheme } from "./classes/morphology/Morpheme";
-import { Word } from "./classes/shared/word";
-import { PhoneMap } from "./classes/phonology/PhoneMap";
-import { PhoneMapPipeline } from "./classes/phonology/PhoneMapPipeline";
-import { Selector } from "./classes/phonology/Selector";
-import { SELECTORS } from "./classes/phonology/SelectorsService";
-import { Phoneme } from "./classes/phonology/Phoneme";
-import { DecomposedWord } from "./classes/shared/DecomposedWord";
+import { Language as LanguageClass } from "./classes/language/Language"; 
+import { Morphology as MorphologyClass } from "./classes/morphology/Morphology";
+import { Phonology as PhonologyClass } from "./classes/phonology/Phonology";
+import { Vocabulary as VocabularyClass } from "./classes/vocabulary/Vocabulary";
+import { Morpheme as MorphemeClass } from "./classes/morphology/Morpheme";
+import { Word as WordClass } from "./classes/shared/word";
+import { PhoneMap as PhoneMapClass } from "./classes/phonology/PhoneMap";
+import { PhoneMapPipeline as PhoneMapPipelineClass } from "./classes/phonology/PhoneMapPipeline";
+import { Selector as SelectorClass } from "./classes/phonology/Selector";
+import { SELECTORS as SELECTORSClass } from "./classes/phonology/SelectorsService";
+import { Phoneme as PhonemeClass } from "./classes/phonology/Phoneme";
+import { DecomposedWord as DecomposedWordClass } from "./classes/shared/DecomposedWord";
 
-declare module 'baron-linguistics' {
-    export function Language(name: string): Language;
-    export function Morphology(language: Language): Morphology;
-    export function Phonology(language: Language): Phonology;
-    export function Vocabulary(language: Language): Vocabulary;
-}
 
-export default { 
-  Language, 
-  Morphology, 
-  Phonology, 
-  Vocabulary,
-  Morpheme,
-  Word,
-  PhoneMap,
-  PhoneMapPipeline,
-  Phoneme,
-  Selector,
-  SELECTORS,
-  DecomposedWord,
-};
+
+export const Language = LanguageClass;
+export const Morphology = MorphologyClass;
+export const Phonology = PhonologyClass;
+export const Vocabulary = VocabularyClass;
+export const Morpheme = MorphemeClass;
+export const Word = WordClass;
+export const PhoneMap = PhoneMapClass;
+export const PhoneMapPipeline = PhoneMapPipelineClass;
+export const Phoneme = PhonemeClass;
+export const Selector = SelectorClass;
+export const SELECTORS = SELECTORSClass;
+export const DecomposedWord = DecomposedWordClass;
 
 // async function main() {
 
